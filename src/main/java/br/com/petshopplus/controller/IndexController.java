@@ -24,12 +24,16 @@ public class IndexController {
 		this.result = result;
 	}
 	
+	@Path("principal")
+	public void principal() {
+	}
+
 	@Path("login")
 	public void login() {
 	}
 	@Path("/")
 	public void index() {
-		result.redirectTo(this).login();
+		result.redirectTo(this).login();	
 	}
 	
 	@Post("logar")
@@ -37,5 +41,7 @@ public class IndexController {
 		System.out.println("TESTE");
 		result.redirectTo(this).login();
 	}
+	
+	
 	
 }
