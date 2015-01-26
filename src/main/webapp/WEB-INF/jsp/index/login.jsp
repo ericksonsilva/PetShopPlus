@@ -14,12 +14,12 @@
     <div class="container">
       <form class="form-signin" action="logar" method="POST">
         <h2 class="form-signin-heading">Acesse sua conta!</h2>
-        <input type="text" class="form-control" placeholder="Email address">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="text" class="form-control" placeholder="Login">
+        <input type="password" class="form-control" placeholder="Senha">
         <label class="checkbox">
-          <input type="checkbox" value="remember-me"> Remember me
+          <input type="checkbox" value="relembre-me"> Relembre-me
         </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
       </form>
 
     </div> <!-- /container -->

@@ -1,9 +1,12 @@
 package br.com.petshopplus.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,6 +27,15 @@ public class Funcionario {
 	private String email;
 	private String funcao;
 	
+	@OneToOne(mappedBy = "func", targetEntity = Login.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Login login;
+	
+	public Login getLogin() {
+		return login;
+	}
+	public void setLogin(Login login) {
+		this.login = login;
+	}
 	public String getNome() {
 		return nome;
 	}
