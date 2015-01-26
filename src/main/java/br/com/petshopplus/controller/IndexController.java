@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 
 @Controller
@@ -22,9 +23,19 @@ public class IndexController {
 	public IndexController(Result result) {
 		this.result = result;
 	}
-
+	
+	@Path("login")
+	public void login() {
+	}
 	@Path("/")
 	public void index() {
-		result.include("variable", "VRaptor!");
+		result.redirectTo(this).login();
 	}
+	
+	@Post("logar")
+	public void logar() {
+		System.out.println("TESTE");
+		result.redirectTo(this).login();
+	}
+	
 }
