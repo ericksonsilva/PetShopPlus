@@ -44,7 +44,7 @@
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="#"><img src="<c:url value="/imagens/imgUsuario.png"/>" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href="#"><img src="<c:url value="/images/imgUsuario.png"/>" class="img-circle" width="60"></a></p>
               	  <h5 class="centered">Franco Neto</h5>
               	  	
                   <li class="mt">
