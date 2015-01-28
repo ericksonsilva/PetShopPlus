@@ -6,6 +6,8 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.petshopplus.safety.Restrito;
+import br.com.petshopplus.safety.Session;
 
 @Controller
 public class IndexController {
@@ -42,6 +44,11 @@ public class IndexController {
 		result.redirectTo(this).login();
 	}
 	
-	
+	@Restrito
+	@Path("/logout")
+	public void logout() {
+		Session.logout();
+		result.redirectTo("/");
+	}
 	
 }
