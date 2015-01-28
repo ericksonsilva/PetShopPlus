@@ -9,8 +9,8 @@
 
     <title>PetShopPlus</title>
   
-    <link href="<c:url value="css/bootstrap.css"/>" rel="stylesheet" type="text/css" />
-    <link href="<c:url value="css/style.css"/>" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="../css/bootstrap.css"/>" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="../css/style.css"/>" rel="stylesheet" type="text/css" />
 
 
     <script type="text/javascript" src="<c:url value="/js/jquery.js"/>"></script>
