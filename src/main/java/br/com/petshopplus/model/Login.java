@@ -9,27 +9,27 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Login_Funcionario")
+@Table(name="Logins")
 public class Login {
 	
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
-	private long id;
+	private int id;
 	
 	private String login;
 	private String senha;
 	
 	@OneToOne
 	@JoinColumn(name="funcionario_id")
-	private Funcionario func;
+	private Funcionario funcionario;
 	
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -55,17 +55,12 @@ public class Login {
 
 
 	public Funcionario getFunc() {
-		return func;
+		return funcionario;
 	}
 
 
-	public void setFunc(Funcionario func) {
-		this.func = func;
-	}
-
-
-	public Login() {
-		// TODO Auto-generated constructor stub
+	public void setFunc(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 
 }
