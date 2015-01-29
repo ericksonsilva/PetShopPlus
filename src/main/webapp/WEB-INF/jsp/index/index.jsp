@@ -12,10 +12,10 @@
 	</head>
 	<body>
     <div class="container">
-      <form class="form-signin" action="logar" method="POST">
+      <form class="form-signin" action="login" method="POST">
         <h2 class="form-signin-heading">Acesse sua conta!</h2>
-        <input type="text" class="form-control" placeholder="Login">
-        <input type="password" class="form-control" placeholder="Senha">
+        <input id="usuario" name="login.usuario" type="text" class="form-control" placeholder="Login">
+        <input id="senha" name="login.senha" type="password" class="form-control" placeholder="Senha">
         <label class="checkbox">
           <input type="checkbox" value="relembre-me"> Relembre-me
         </label>

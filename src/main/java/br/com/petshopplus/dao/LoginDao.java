@@ -41,7 +41,8 @@ public class LoginDao {
 	
 	public Login carrega(Login login) {
 		return (Login) session.createCriteria(Login.class)
-		.add(Restrictions.eq("id", login.getId()))
+		.add(Restrictions.eq("usuario", login.getUsuario()))
+		.add(Restrictions.eq("senha", login.getSenha()))
 		.uniqueResult();
 	}
 	

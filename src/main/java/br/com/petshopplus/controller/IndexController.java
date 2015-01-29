@@ -1,17 +1,15 @@
 package br.com.petshopplus.controller;
 
 import javax.inject.Inject;
-import javax.servlet.jsp.tagext.ValidationMessage;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.validator.Message;
+import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.facade.PSPFacade;
 import br.com.petshopplus.facade.PSPFacadeException;
 import br.com.petshopplus.model.Login;
-import br.com.petshopplus.safety.Restrito;
 import br.com.petshopplus.safety.Session;
 
 @Controller
@@ -43,7 +41,7 @@ public class IndexController {
 			facade.realizarLogin(login);
 		}catch (PSPFacadeException e){
 			validator.add(
-				(Message) new ValidationMessage(e.getMessage(),
+				new SimpleMessage(e.getMessage(),
 						"login.nomeUsuario"));
 		}
 		validator.onErrorUsePageOf(this).index();	
