@@ -2,14 +2,19 @@ package br.com.petshopplus.controller;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import br.com.caelum.vraptor.Controller;
 import br.com.petshopplus.dao.AnimalDao;
 import br.com.petshopplus.model.Animal;
 
+@Controller
 public class AnimalController {
 	private AnimalDao dao;
 	
-	public AnimalController() {
-		dao = new AnimalDao();
+	@Inject
+	public AnimalController(AnimalDao dao) {
+		this.dao = dao;
 	}
 	
 	public void adiciona(Animal animal){

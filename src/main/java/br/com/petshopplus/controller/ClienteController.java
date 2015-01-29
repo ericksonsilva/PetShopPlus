@@ -16,7 +16,6 @@ import br.com.petshopplus.model.Cliente;
 @Controller
 public class ClienteController {
 	private final ClienteDao dao;
-	
 	private final Result result;
 	private final Validator validator;
 	

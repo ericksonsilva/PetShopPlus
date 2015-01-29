@@ -1,50 +1,60 @@
 package br.com.petshopplus.controller;
 
 import javax.inject.Inject;
+import javax.servlet.jsp.tagext.ValidationMessage;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
-import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.Message;
+import br.com.caelum.vraptor.validator.Validator;
+import br.com.petshopplus.facade.PSPFacade;
+import br.com.petshopplus.facade.PSPFacadeException;
+import br.com.petshopplus.model.Login;
 import br.com.petshopplus.safety.Restrito;
 import br.com.petshopplus.safety.Session;
 
 @Controller
 public class IndexController {
 
+	private final Validator validator;
 	private final Result result;
-
-	/**
-	 * @deprecated CDI eyes only
-	 */
+	private final PSPFacade facade;
+	
 	protected IndexController() {
-		this(null);
+		this(null,null,null);
 	}
 	
 	@Inject
-	public IndexController(Result result) {
+	public IndexController(Validator validator, Result result, PSPFacade facade){
+		this.validator = validator;
 		this.result = result;
+		this.facade = facade;
 	}
 	
-	@Path("principal")
-	public void principal() {
+	//@Restrito
+	@Path("/home")
+	public void home() {
 	}
 
-	@Path("login")
-	public void login() {
+	@Path("/login")
+	public void login(Login login) {
+		try{
+			facade.realizarLogin(login);
+		}catch (PSPFacadeException e){
+			validator.add(
+				(Message) new ValidationMessage(e.getMessage(),
+						"login.nomeUsuario"));
+		}
+		validator.onErrorUsePageOf(this).index();	
+		result.redirectTo(this).home();
 	}
+	
 	@Path("/")
-	public void index() {
-		result.redirectTo(this).login();	
+	public void index() {	
 	}
 	
-	@Post("logar")
-	public void logar() {
-		System.out.println("TESTE");
-		result.redirectTo(this).login();
-	}
-	
-	@Restrito
+	//@Restrito
 	@Path("/logout")
 	public void logout() {
 		Session.logout();
