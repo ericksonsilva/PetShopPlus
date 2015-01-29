@@ -23,7 +23,7 @@ public class Session implements Serializable{
 	
 	public static void setSession(Login l) {
 		login = l;
-		funcionario = l.getFunc();
+		funcionario = l.getFuncionario();
 		logado = true;
 	}
 	

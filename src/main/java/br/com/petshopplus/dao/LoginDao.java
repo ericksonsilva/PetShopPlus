@@ -47,7 +47,7 @@ public class LoginDao {
 	
 	public boolean existeLogin(Login login) {
 		Login encontrado = (Login) session.createCriteria(Login.class)
-				.add(Restrictions.eq("login", login.getLogin()))
+				.add(Restrictions.eq("login", login.getUsuario()))
 				.uniqueResult();
 				return encontrado != null;
 	}	

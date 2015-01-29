@@ -16,7 +16,7 @@ public class Login {
 	@Id
 	private int id;
 	
-	private String login;
+	private String usuario;
 	private String senha;
 	
 	@OneToOne
@@ -34,13 +34,13 @@ public class Login {
 	}
 
 
-	public String getLogin() {
-		return login;
+	public String getUsuario() {
+		return usuario;
 	}
 
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUsuario(String login) {
+		this.usuario = login;
 	}
 
 
@@ -54,12 +54,12 @@ public class Login {
 	}
 
 
-	public Funcionario getFunc() {
+	public Funcionario getFuncionario() {
 		return funcionario;
 	}
 
 
-	public void setFunc(Funcionario funcionario) {
+	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
 	}
 
