@@ -9,13 +9,12 @@
 
     <title>PetShopPlus</title>
   
-    <link href="<c:url value="/css/bootstrap.css"/>" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/css/style.css"/>" rel="stylesheet" type="text/css" />
-
-
+    
     <script type="text/javascript" src="<c:url value="/js/jquery.js"/>"></script>
     <script class="include" type="text/javascript" src="<c:url value="/js/jquery.dcjqaccordion.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/js/common-scripts.js"/>"></script>
+    
 <fmt:setLocale value="pt_br"/>
   </head>
 

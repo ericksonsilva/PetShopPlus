@@ -1,13 +1,14 @@
 <%@ include file="../menu/menu.jsp" %>
 
       <section id="main-content">
-          <section class="wrapper">
-            <h3><i class="fa fa-angle-right"></i> Cadastrar Cliente</h3>
+          <section class="container">
+            
+            <h3> Cadastrar Cliente</h3>
             
             <div class="row mt">
               <div class="col-lg-12">
                   <div class="form-panel">
-                      <h4 class="mb"><i class="fa fa-angle-right"></i> Preencha o formulario</h4>
+                      <h4><i class="fa"></i> Preencha o formulario</h4>
                       <form class="form-horizontal style-form" method="Post" action="${linkTo[ClienteController].adiciona}">
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Nome:</label>

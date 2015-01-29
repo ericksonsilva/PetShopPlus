@@ -9,6 +9,7 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import static br.com.caelum.vraptor.view.Results.*;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.dao.ClienteDao;
 import br.com.petshopplus.model.Cliente;
@@ -31,9 +32,8 @@ public class ClienteController {
 	}
 	
 	@Path("cliente/cadastro")
-	public void formulario(){
-		
-	}
+	public void formulario(){}
+	
 	public void teste(){
 	}
 	@Path("cliente/adiciona")
@@ -59,7 +59,8 @@ public class ClienteController {
 	public Cliente busca(Cliente cliente){
 		return dao.carrega(cliente);
 	}
-		
+	
+	@Path("cliente/lista")
 	public List<Cliente> lista(){
 		return dao.lista();
 	}

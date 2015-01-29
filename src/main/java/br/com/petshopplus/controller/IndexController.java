@@ -10,6 +10,7 @@ import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.facade.PSPFacade;
 import br.com.petshopplus.facade.PSPFacadeException;
 import br.com.petshopplus.model.Login;
+import br.com.petshopplus.safety.Restrito;
 import br.com.petshopplus.safety.Session;
 
 @Controller
