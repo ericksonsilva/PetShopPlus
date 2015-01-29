@@ -1,4 +1,4 @@
-<%@ include file="../index/home.jsp" %>
+<%@ include file="../menu/menu.jsp" %>
 
       <section id="main-content">
           <section class="wrapper">
