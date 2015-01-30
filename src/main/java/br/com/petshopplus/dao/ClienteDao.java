@@ -38,7 +38,6 @@ public class ClienteDao {
 	public Cliente carrega(String cpf) {
 		return (Cliente) this.session.get(Cliente.class, cpf);
 	}
-	
 	public Cliente carrega(int id) {
 		return (Cliente) this.session.get(Cliente.class, id);
 	}

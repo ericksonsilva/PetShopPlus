@@ -87,11 +87,8 @@
                           <span>Funcionário</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="#">Cadastrar</a></li>
-                          <li><a  href="#">Editar</a></li>
-                          <li><a  href="#">Excluir</a></li>
-                          <li><a  href="#">Listar</a></li>
-
+                          <li><a  href="<c:url value="/funcionario/cadastro"/>">Cadastrar</a></li> 
+                          <li><a  href="<c:url value="/funcionario/lista"/>">Listar</a></li>
                       </ul>
                   </li>
               </ul>

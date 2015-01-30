@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
+import br.com.petshopplus.model.Cliente;
 import br.com.petshopplus.model.Funcionario;
 import br.com.petshopplus.persistence.HibernateUtil;
 
@@ -37,6 +38,9 @@ public class FuncionarioDao {
 	
 	public Funcionario carrega(String cpf) {
 		return (Funcionario) this.session.get(Funcionario.class, cpf);
+	}
+	public Funcionario carrega(int id) {
+		return (Funcionario) this.session.get(Funcionario.class, id);
 	}
 	
 	public Funcionario carrega(Funcionario funcionario) {
