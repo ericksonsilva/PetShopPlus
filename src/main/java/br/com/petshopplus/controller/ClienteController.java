@@ -48,8 +48,15 @@ public class ClienteController {
 		dao.atualiza(cliente);
 	}
 	
-	public void apaga(Cliente cliente){
+	@Path("cliente/apaga/{id}")
+	public void apaga(int id){
+		Cliente cliente = this.busca(id); 
 		dao.remove(cliente);
+		this.result.redirectTo("/cliente/lista");
+	}
+	
+	public Cliente busca(int id){
+		return dao.carrega(id);
 	}
 	
 	public Cliente busca(String cpf){

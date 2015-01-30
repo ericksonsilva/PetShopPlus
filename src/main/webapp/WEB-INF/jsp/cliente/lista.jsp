@@ -5,7 +5,7 @@
 	            <div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
-                          <table class="table table-striped table-advance table-hover">
+                          <table class="table table-striped table-advance table-hover" >
 	                  	  	  <h4><i class="fa fa-angle-right"></i> Lista de Clientes</h4>
 	                  	  	  <hr>
                               <thead>
@@ -33,8 +33,10 @@
 	              	              <td>${cliente.telefone}</td>
 	              	              <td>${cliente.email}</td>
 	              	              <td>
-                                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+	              	                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+	              	              	<form action="<c:url value="/cliente/apaga/${cliente.id}"/>" method="POST">
+										<button class="btn btn-danger btn-xs" name="_method" value="DELETE"><i class="fa fa-trash-o "></i></button>
+									</form>
                                   </td>
 	              	          </tr>
 	              	    	  </c:forEach>

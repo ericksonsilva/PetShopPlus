@@ -39,6 +39,9 @@ public class ClienteDao {
 		return (Cliente) this.session.get(Cliente.class, cpf);
 	}
 	
+	public Cliente carrega(int id) {
+		return (Cliente) this.session.get(Cliente.class, id);
+	}
 	public Cliente carrega(Cliente cliente) {
 		return (Cliente) session.createCriteria(Cliente.class)
 		.add(Restrictions.eq("cpf", cliente.getCpf()))
