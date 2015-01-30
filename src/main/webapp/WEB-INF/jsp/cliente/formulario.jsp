@@ -1,10 +1,9 @@
 <%@ include file="../menu/menu.jsp" %>
 
       <section id="main-content">
-          <section class="container">
+          <section class="wrapper">
             
-            <h3> Cadastrar Cliente</h3>
-            
+            <h3> Cadastrar Cliente</h3>          
             <div class="row mt">
               <div class="col-lg-12">
                   <div class="form-panel">
@@ -20,7 +19,7 @@
                               <label class="col-sm-2 col-sm-2 control-label">Cpf:</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="cliente.cpf">
-                                  <span class="help-block">NÃo use(.), hifen(-) ou barra (/).</span>
+                                  <span class="help-block">Não use(.), hifen(-) ou barra (/).</span>
                               </div>
                           </div>
                           <div class="form-group">
@@ -65,7 +64,7 @@
                                   <input type="text" class="form-control" placeholder="email.@exemplo.com" name="cliente.email">
                               </div>
                           </div>
-                          <button type="submit" class="btn btn-primary">
+                          <button type="submit" class="btn btn-primary btnCadastro">
 								Cadastrar
 						  </button>
                       </form>

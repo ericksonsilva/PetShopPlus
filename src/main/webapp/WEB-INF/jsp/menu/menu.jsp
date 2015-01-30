@@ -9,7 +9,7 @@
 
     <title>PetShopPlus</title>
   
-    <link href="<c:url value="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>" rel="stylesheet" type="text/css" />
+    <link href="<c:url value="/css/bootstrap.css"/>" rel="stylesheet" type="text/css" />
     <link href="<c:url value="/css/style.css"/>" rel="stylesheet" type="text/css" />
     <link href="<c:url value="    //maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>" rel="stylesheet"/>    
     

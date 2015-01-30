@@ -1,7 +1,5 @@
 <%@ include file="../menu/menu.jsp" %>
-      <section id="main-content">
-          <section class="wrapper">
-             <div class="container">
+      
 	            <div class="row mt">
                   <div class="col-md-12">
                       <div class="content-panel">
@@ -9,8 +7,7 @@
 	                  	  	  <h4><i class="fa fa-angle-right"></i> Lista de Clientes</h4>
 	                  	  	  <hr>
                               <thead>
-                              <tr>
-                              	  <th>iD</th>
+                              <tr>                              	  
                                   <th>Cpf</th>
                                   <th>Nome</th>
                                   <th>Cidade</th>
@@ -24,7 +21,6 @@
                               <tbody>
                               <c:forEach items="${clienteList}" var = "cliente">
 	              	          <tr>
-	              	              <td>${cliente.id}</td>
 	              	              <td>${cliente.cpf}</td>
 	              	              <td>${cliente.nome}</td>
 	              	              <td>${cliente.cidade}</td>
@@ -44,6 +40,3 @@
                   </div>
               </div>
 	             
-              </div>
-          </section>
-      </section>

@@ -8,11 +8,9 @@ body {
   margin: 0;
 }
 .wrapper{
-border: 1px solid #68dff0;
 width: 75%;
 margin-left: 140px;
-margin-top: 40px;
-border-radius: 5px;
+margin-top: 10px;
 padding: 10px 30px 10px 10px;
 }
 
@@ -322,7 +320,7 @@ background-color: #449d44;
 border-color: #398439;
 }
 .btnCadastro{
-margin-left: 330px;
+margin-left: 380px;
 }
 
 .fa-trash-o:before {
