@@ -62,7 +62,7 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="<c:url value="/cliente/cadastro"/>">Cadastrar</a></li> 
-                          <li><a  href="#">Listar</a></li>
+                          <li><a  href="<c:url value="/cliente/lista"/>">Listar</a></li>
 
                       </ul>
                   </li>
