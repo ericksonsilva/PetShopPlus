@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
@@ -48,8 +49,8 @@ public class ClienteController {
 		dao.atualiza(cliente);
 	}
 	
-	@Path("cliente/apaga/{id}")
-	public void apaga(int id){
+	@Path("cliente/remove/{id}")
+	public void remove(int id){
 		Cliente cliente = this.busca(id); 
 		dao.remove(cliente);
 		this.result.redirectTo("/cliente/lista");

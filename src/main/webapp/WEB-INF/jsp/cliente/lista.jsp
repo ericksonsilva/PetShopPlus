@@ -33,10 +33,8 @@
 	              	              <td>${cliente.telefone}</td>
 	              	              <td>${cliente.email}</td>
 	              	              <td>
-	              	                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-	              	              	<form action="<c:url value="/cliente/apaga/${cliente.id}"/>" method="POST">
-										<button class="btn btn-danger btn-xs" name="_method" value="DELETE"><i class="fa fa-trash-o "></i></button>
-									</form>
+	              	                <a href="edita/${cliente.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+	              	                <a href="remove/${cliente.id}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
                                   </td>
 	              	          </tr>
 	              	    	  </c:forEach>
