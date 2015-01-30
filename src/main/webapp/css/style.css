@@ -5,6 +5,14 @@
   font-weight: normal;
   font-style: normal;
 }
+body {
+color: #797979;
+background: #f2f2f2;
+font-family: 'Ruda', sans-serif;
+padding: 0px !important;
+margin: 0px !important;
+font-size: 13px;
+}
 .fa {
   display: inline-block;
   font-family: FontAwesome;
@@ -14,6 +22,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .fa-dashboard:before{
 content: "\f0e4";
 }
