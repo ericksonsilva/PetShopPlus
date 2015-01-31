@@ -24,15 +24,15 @@
 	              	          <tr>
 	              	              <td>${funcionario.cpf}</td>
 	              	              <td>${funcionario.nome}</td>
-                                <td>${funcionario.funcao}</td>
+                                  <td>${funcionario.funcao}</td>
 	              	              <td>${funcionario.cidade}</td>
 	              	              <td>${funcionario.bairro}</td>
-                                <td>${funcionario.rua}</td>
-                                <td>${funcionario.telefone}</td>
+                                  <td>${funcionario.rua}</td>
+                                  <td>${funcionario.telefone}</td>
 	              	              <td>${funcionario.email}</td>
 	              	              <td>
 	              	                <a href="funcionario/edita/${funcionario.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-	              	                <a href="funcionario/remove/${funcionario.id}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+	              	                <a href="funcionario/remove/${funcionario.id}" class="btn btn-danger btn-xs" onclick="return confirm('Deseja realmente excluir?');"><i class="fa fa-trash-o"></i></a>
                                   </td>
 	              	          </tr>
 	              	    	  </c:forEach>

@@ -30,7 +30,7 @@
 	              	              <td>${cliente.email}</td>
 	              	              <td>
 	              	                <a href="cliente/edita/${cliente.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-	              	                <a href="cliente/remove/${cliente.id}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+	              	                <a href="cliente/remove/${cliente.id}" class="btn btn-danger btn-xs" onclick="return confirm('Deseja realmente excluir?');"><i class="fa fa-trash-o"></i></a>
                                   </td>
 	              	          </tr>
 	              	    	  </c:forEach>
