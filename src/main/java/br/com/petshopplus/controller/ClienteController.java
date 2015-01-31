@@ -8,6 +8,7 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
 import static br.com.caelum.vraptor.view.Results.*;
 import br.com.caelum.vraptor.validator.Validator;
@@ -46,6 +47,12 @@ public class ClienteController {
 	
 	public void atualiza(Cliente cliente){
 		dao.atualiza(cliente);
+		this.result.redirectTo("/cliente/lista");
+	}
+	
+	@Path("cliente/edita/{id}")
+	public Cliente edita(int id){
+		return dao.carrega(id);
 	}
 	
 	@Path("cliente/remove/{id}")
