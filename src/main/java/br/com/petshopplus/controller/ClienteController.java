@@ -47,7 +47,7 @@ public class ClienteController {
 	
 	public void atualiza(Cliente cliente){
 		dao.atualiza(cliente);
-		this.result.redirectTo("/cliente/lista");
+		this.result.redirectTo("/clientes");
 	}
 	
 	@Path("cliente/edita/{id}")
@@ -59,7 +59,7 @@ public class ClienteController {
 	public void remove(int id){
 		Cliente cliente = this.busca(id); 
 		dao.remove(cliente);
-		this.result.redirectTo("/cliente/lista");
+		this.result.redirectTo("/clientes");
 	}
 	
 	public Cliente busca(int id){
@@ -74,7 +74,7 @@ public class ClienteController {
 		return dao.carrega(cliente);
 	}
 	
-	@Path("cliente/lista")
+	@Path("clientes")
 	public List<Cliente> lista(){
 		return dao.lista();
 	}

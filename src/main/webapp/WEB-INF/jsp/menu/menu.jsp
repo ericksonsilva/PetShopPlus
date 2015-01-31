@@ -29,7 +29,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             
-            <a href="#" class="logo"><b>PETSHOPPLUS</b></a>
+            <a href="home" class="logo"><b>PETSHOPPLUS</b></a>
            
 
 
@@ -62,7 +62,7 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="<c:url value="/cliente/cadastro"/>">Cadastrar</a></li> 
-                          <li><a  href="<c:url value="/cliente/lista"/>">Listar</a></li>
+                          <li><a  href="<c:url value="/clientes"/>">Listar</a></li>
 
                       </ul>
                   </li>
@@ -88,7 +88,7 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="<c:url value="/funcionario/cadastro"/>">Cadastrar</a></li> 
-                          <li><a  href="<c:url value="/funcionario/lista"/>">Listar</a></li>
+                          <li><a  href="<c:url value="/funcionarios"/>">Listar</a></li>
                       </ul>
                   </li>
               </ul>

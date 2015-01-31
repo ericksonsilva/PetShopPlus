@@ -47,7 +47,7 @@ public class FuncionarioController {
 	@Put
 	public void atualiza(Funcionario funcionario){
 		dao.atualiza(funcionario);
-		this.result.redirectTo("/funcionario/lista");
+		this.result.redirectTo("/funcionarios");
 	}
 	
 	@Path("funcionario/edita/{id}")
@@ -59,7 +59,7 @@ public class FuncionarioController {
 	public void remove(int id){
 		Funcionario funcionario = this.busca(id); 
 		dao.remove(funcionario);
-		this.result.redirectTo("/funcionario/lista");
+		this.result.redirectTo("/funcionarios");
 	}
 	
 	public Funcionario busca(int id){
@@ -74,7 +74,7 @@ public class FuncionarioController {
 		return dao.carrega(funcionario);
 	}
 	
-	@Path("funcionario/lista")	
+	@Path("funcionarios")	
 	public List<Funcionario> lista(){
 		return dao.lista();
 	}

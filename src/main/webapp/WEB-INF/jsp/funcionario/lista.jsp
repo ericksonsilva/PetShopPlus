@@ -31,8 +31,8 @@
                                 <td>${funcionario.telefone}</td>
 	              	              <td>${funcionario.email}</td>
 	              	              <td>
-	              	                <a href="edita/${funcionario.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-	              	                <a href="remove/${funcionario.id}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+	              	                <a href="funcionario/edita/${funcionario.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+	              	                <a href="funcionario/remove/${funcionario.id}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
                                   </td>
 	              	          </tr>
 	              	    	  </c:forEach>
