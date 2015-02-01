@@ -73,10 +73,8 @@
                           <span>Animal</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="#">Cadastrar</a></li>
-                          <li><a  href="#">Editar</a></li>
-                          <li><a  href="#">Excluir</a></li>
-                          <li><a  href="#">Listar</a></li>
+                          <li><a   href="<c:url value="/animal/cadastro"/>">Cadastrar</a></li>
+                          <li><a   href="<c:url value="/animais"/>">Listar</a></li>
 
                       </ul>
                   </li>
