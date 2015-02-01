@@ -13,6 +13,8 @@
                                   <th>Cidade</th>
                                   <th>Cep</th>
                                   <th>Bairro</th>
+                                  <th>Rua</th>
+                                  <th>Complemento</th>
                                   <th>Telefone</th>
                                   <th>Email</th>
 
@@ -26,6 +28,8 @@
 	              	              <td>${cliente.cidade}</td>
 	              	              <td>${cliente.cep}</td>
 	              	              <td>${cliente.bairro}</td>
+	              	              <td>${cliente.rua}</td>
+	              	              <td>${cliente.complemento}</td>
 	              	              <td>${cliente.telefone}</td>
 	              	              <td>${cliente.email}</td>
 	              	              <td>

@@ -14,6 +14,7 @@
                                   <th>Cidade</th>
                                   <th>Bairro</th>
                                   <th>Rua</th>
+                                  <th>Complemento</th>
                                   <th>Telefone</th>
                                   <th>Email</th>
 
@@ -28,6 +29,7 @@
 	              	              <td>${funcionario.cidade}</td>
 	              	              <td>${funcionario.bairro}</td>
                                   <td>${funcionario.rua}</td>
+                                  <td>${funcionario.complemento}</td>
                                   <td>${funcionario.telefone}</td>
 	              	              <td>${funcionario.email}</td>
 	              	              <td>

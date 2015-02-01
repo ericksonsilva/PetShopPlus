@@ -32,10 +32,7 @@ public class FuncionarioController {
 	
 	@Path("funcionario/cadastro")
 	public void formulario(){}
-	
-	public void teste(){
-	}
-	
+
 	@Path("funcinario/adiciona")
 	@Post
 	public void adiciona(Funcionario funcionario){
