@@ -2,13 +2,6 @@
 
       <section id="main-content">
           <section class="wrapper">
-          <div class="erros">
-			  <ul>
-			    <c:forEach items="${errors}" var="error">
-			     <li><h5><i class="fa fa-exclamation-circle"></i>ERRO - ${error.message }</h5></li>
-			    </c:forEach>
-			  </ul>
-			</div>
             <h3> Cadastrar Animal</h3>          
             <div class="row mt">
               <div class="col-lg-12">
@@ -19,37 +12,42 @@
                               <label class="col-sm-2 col-sm-2 control-label">Nome:</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="animal.nome"  value="${animal.nome}">
+                              	  <span class="erros">${errors.from('nome')}</span>
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Sexo:</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="animal.sexo" value="${animal.sexo}">
-                                  
+                                  <span class="erros">${errors.from('sexo')}</span>
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Raça:</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="animal.raca" value="${animal.raca}">
+                                  <span class="erros">${errors.from('raca')}</span>
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Especie:</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="animal.especie" value="${animal.especie}">
+                              	  <span class="erros">${errors.from('especie')}</span>
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Porte:</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="animal.porte" value="${animal.porte}">
+                              	  <span class="erros">${errors.from('porte')}</span>
                               </div>
                           </div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Idade:</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="animal.idade" value="${animal.idade}">
+                              	  <span class="erros">${errors.from('idade')}</span>
                               </div>
                           </div>
                           
