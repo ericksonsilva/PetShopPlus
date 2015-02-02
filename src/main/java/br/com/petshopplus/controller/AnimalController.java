@@ -42,24 +42,7 @@ public class AnimalController {
 		
 	}
 	public void adiciona(Animal animal){
-		if (animal.getNome() == null) {
-			validator.add(new SimpleMessage("nome", "O campo nome é obrigatório. Tente novamente."));
-			  }
-		if (animal.getSexo() == null) {
-			validator.add(new SimpleMessage("sexo", "O campo sexo é obrigatório. Tente novamente."));
-			  }
-		if (animal.getRaca() == null) {
-			validator.add(new SimpleMessage("raca", "O campo raça é obrigatório. Tente novamente."));
-			  }
-		if (animal.getEspecie() == null) {
-			validator.add(new SimpleMessage("especie", "O campo especie é obrigatório. Tente novamente."));
-			  }
-		if (animal.getIdade() == null) {
-			validator.add(new SimpleMessage("idade", "O campo idade é obrigatório. Tente novamente."));
-			  }
-		if (animal.getPorte() == null) {
-			validator.add(new SimpleMessage("porte", "O campo porte é obrigatório. Tente novamente."));
-			  }	
+	    validator.validate(animal);
 		validator.onErrorUsePageOf(AnimalController.class).formulario();
 		dao.salva(animal);
 		this.result.redirectTo("/animal/cadastro");

@@ -7,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name="Animais")
@@ -15,13 +18,19 @@ public class Animal {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
 	private int id;
-	
-	private String nome;
-	private String sexo;
-	private String raca;
-	private String especie;
-	private String porte;
-	private String idade;
+	@NotNull (message="Nome precisa ser preenchido")
+	@Length(min=3, message="Nome precisa ter mais de 3 letras")
+		private String nome;
+	@NotNull (message="Sexo precisa ser preenchido")
+		private String sexo;
+	@NotNull (message="Raça precisa ser preenchido")
+		private String raca;
+	@NotNull (message="Espécie precisa ser preenchido")
+		private String especie;
+	@NotNull (message="Porte precisa ser preenchido")
+		private String porte;
+	@NotNull (message="Idade precisa ser preenchido")
+		private String idade;
 	
 	@ManyToOne
 	@JoinColumn(name="cliente_id")

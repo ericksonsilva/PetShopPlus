@@ -8,6 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name="Funcionarios")
@@ -17,15 +22,25 @@ public class Funcionario {
 	@Id
 	private int id;
 	
-	private String cpf;
-	private String nome;
-	private String telefone;
-	private String rua;
-	private String complemento;
-	private String bairro;
-	private String cidade;
+	@NotNull (message="Cpf precisa ser preenchido")
+	@Length(min=11,message=" Cpf deve ter 11 dígitos")
+		private String cpf;
+	@NotNull (message="Nome precisa ser preenchido")
+	@Length(min=3, message="Nome precisa ter mais de 3 letras")
+		private String nome;
+	@NotNull (message="Telefone precisa ser preenchido")
+		private String telefone;
+	@NotNull (message="Rua precisa ser preenchido")
+		private String rua;
+	@NotNull (message="Complemento precisa ser preenchido")
+		private String complemento;
+	@NotNull (message="Bairro precisa ser preenchido")
+		private String bairro;
+	@NotNull (message="Cidade precisa ser preenchido")
+		private String cidade;
 	private String email;
-	private String funcao;
+	@NotNull (message="Função precisa ser preenchido")
+		private String funcao;
 	
 	@OneToOne(mappedBy = "funcionario", targetEntity = Login.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Login login;

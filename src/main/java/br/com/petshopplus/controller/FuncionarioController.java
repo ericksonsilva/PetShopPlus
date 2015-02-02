@@ -37,30 +37,7 @@ public class FuncionarioController {
 	@Path("funcinario/adiciona")
 	@Post
 	public void adiciona(Funcionario funcionario){
-		if (funcionario.getNome() == null || funcionario.getNome().length() < 3) {
-			validator.add(new SimpleMessage("nome", "O campo nome é obrigatório e precisa ter mais de 3 letras. Tente novamente."));
-			  }
-		if (funcionario.getCpf() == null || funcionario.getCpf().length() != 11) {
-			validator.add(new SimpleMessage("cpf", "O campo cpf é obrigatório e precisa ter 11 números. Tente novamente."));
-			  }		
-		if (funcionario.getTelefone() == null) {
-			validator.add(new SimpleMessage("telefone", "O campo telefone é obrigatório. Tente novamente."));
-			  }
-		if (funcionario.getRua() == null) {
-			validator.add(new SimpleMessage("rua", "O campo rua é obrigatório. Tente novamente."));
-			  }
-		if (funcionario.getBairro() == null) {
-			validator.add(new SimpleMessage("bairro", "O campo bairro é obrigatório. Tente novamente."));
-			  }
-		if (funcionario.getComplemento() == null) {
-			validator.add(new SimpleMessage("complemento", "O campo complemento é obrigatório. Tente novamente."));
-			  }
-		if (funcionario.getCidade() == null) {
-			validator.add(new SimpleMessage("cidade", "O campo cidade é obrigatório. Tente novamente."));
-			  }
-		if (funcionario.getFuncao() == null) {
-			validator.add(new SimpleMessage("funcao", "O campo função é obrigatório. Tente novamente."));
-			  }	
+	    validator.validate(funcionario);
 		validator.onErrorUsePageOf(FuncionarioController.class).formulario();
 		dao.salva(funcionario);
 		this.result.redirectTo("/funcionario/cadastro");

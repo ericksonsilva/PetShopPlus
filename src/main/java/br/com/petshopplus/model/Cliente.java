@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name="Clientes")
@@ -18,15 +21,24 @@ public class Cliente {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
 	private int id;
-	
-	private String cpf;
-	private String nome;
-	private String telefone;
-	private String rua;
-	private String complemento;
-	private String bairro;
-	private String cidade;
-	private String cep;
+	@NotNull (message="Cpf precisa ser preenchido")
+	@Length(min=11,message=" Cpf deve ter 11 dígitos")
+		private String cpf;
+	@NotNull (message="Nome precisa ser preenchido")
+	@Length(min=3, message="Nome precisa ter mais de 3 letras")
+		private String nome;
+	@NotNull (message="Telefone precisa ser preenchido")
+		private String telefone;
+	@NotNull (message="Rua precisa ser preenchido")
+		private String rua;
+	@NotNull (message="Complemento precisa ser preenchido")
+		private String complemento;
+	@NotNull (message="Bairro precisa ser preenchido")
+		private String bairro;
+	@NotNull (message="Cidade precisa ser preenchido")
+		private String cidade;
+	@NotNull (message="Cep precisa ser preenchido")
+		private String cep;
 	private String email;
 	
 	@OneToMany(mappedBy = "dono", targetEntity = Animal.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
