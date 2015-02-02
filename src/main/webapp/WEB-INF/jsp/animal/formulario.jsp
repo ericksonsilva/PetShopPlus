@@ -5,7 +5,7 @@
           <div class="erros">
 			  <ul>
 			    <c:forEach items="${errors}" var="error">
-			     <li><h5>ERRO - ${error.message }</h5></li>
+			     <li><h5><i class="fa fa-exclamation-circle"></i>ERRO - ${error.message }</h5></li>
 			    </c:forEach>
 			  </ul>
 			</div>
