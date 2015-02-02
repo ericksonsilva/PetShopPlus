@@ -43,7 +43,7 @@ public class AnimalController {
 	}
 	public void adiciona(Animal animal){
 	    validator.validate(animal);
-		validator.onErrorUsePageOf(AnimalController.class).formulario();
+		validator.onErrorUsePageOf(this).formulario();
 		dao.salva(animal);
 		this.result.redirectTo("/animal/cadastro");
 	}

@@ -38,7 +38,7 @@ public class FuncionarioController {
 	@Post
 	public void adiciona(Funcionario funcionario){
 	    validator.validate(funcionario);
-		validator.onErrorUsePageOf(FuncionarioController.class).formulario();
+		validator.onErrorUsePageOf(this).formulario();
 		dao.salva(funcionario);
 		this.result.redirectTo("/funcionario/cadastro");
 	}	

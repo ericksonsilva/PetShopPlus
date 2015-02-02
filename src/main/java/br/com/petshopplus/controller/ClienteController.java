@@ -42,8 +42,7 @@ public class ClienteController {
 	@Post
 	public void adiciona(Cliente cliente){
 	    validator.validate(cliente);
-		validator.onErrorUsePageOf(ClienteController.class).formulario();
-		System.out.println("Nome: "+cliente.getNome()+"  Cidade: "+cliente.getCidade());
+		validator.onErrorUsePageOf(this).formulario();
 		dao.salva(cliente);
 		this.result.redirectTo("/cliente/cadastro");
 	}
