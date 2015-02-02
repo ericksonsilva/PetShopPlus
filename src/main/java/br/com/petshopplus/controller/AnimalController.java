@@ -8,6 +8,8 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.SimpleMessage;
+import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.dao.AnimalDao;
 import br.com.petshopplus.dao.ClienteDao;
 import br.com.petshopplus.model.Animal;
@@ -17,16 +19,20 @@ public class AnimalController {
 	private AnimalDao dao;
 	private ClienteDao clienteDao;
 	private Result result;
+	private Validator validator;
+
 	
 	protected AnimalController() {
-		this(null, null,null);
+		this(null, null,null,null);
 	}
 	
 	@Inject
-	public AnimalController(AnimalDao dao,ClienteDao clienteDao,Result result) {
+	public AnimalController(AnimalDao dao,ClienteDao clienteDao,Result result,Validator validator) {
 		this.dao = dao;
 		this.result = result;
 		this.clienteDao = clienteDao;
+		this.validator = validator;
+
 	}
 	
 	@Path("animal/cadastro")
@@ -36,6 +42,25 @@ public class AnimalController {
 		
 	}
 	public void adiciona(Animal animal){
+		if (animal.getNome() == null) {
+			validator.add(new SimpleMessage("nome", "O campo nome é obrigatório. Tente novamente."));
+			  }
+		if (animal.getSexo() == null) {
+			validator.add(new SimpleMessage("sexo", "O campo sexo é obrigatório. Tente novamente."));
+			  }
+		if (animal.getRaca() == null) {
+			validator.add(new SimpleMessage("raca", "O campo raça é obrigatório. Tente novamente."));
+			  }
+		if (animal.getEspecie() == null) {
+			validator.add(new SimpleMessage("especie", "O campo especie é obrigatório. Tente novamente."));
+			  }
+		if (animal.getIdade() == null) {
+			validator.add(new SimpleMessage("idade", "O campo idade é obrigatório. Tente novamente."));
+			  }
+		if (animal.getPorte() == null) {
+			validator.add(new SimpleMessage("porte", "O campo porte é obrigatório. Tente novamente."));
+			  }	
+		validator.onErrorUsePageOf(AnimalController.class).formulario();
 		dao.salva(animal);
 		this.result.redirectTo("/animal/cadastro");
 	}

@@ -2,6 +2,13 @@
 
       <section id="main-content">
           <section class="wrapper">
+          <div class="erros">
+			  <ul>
+			    <c:forEach items="${errors}" var="error">
+			     <li><h5>ERRO - ${error.message }</h5></li>
+			    </c:forEach>
+			  </ul>
+			</div>
             <h3> Cadastrar Funcionário</h3>          
             <div class="row mt">
               <div class="col-lg-12">

@@ -11,6 +11,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
 import static br.com.caelum.vraptor.view.Results.*;
+import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.dao.ClienteDao;
 import br.com.petshopplus.model.Cliente;
@@ -40,6 +41,31 @@ public class ClienteController {
 	@Path("cliente/adiciona")
 	@Post
 	public void adiciona(Cliente cliente){
+		if (cliente.getNome() == null || cliente.getNome().length() < 3) {
+			validator.add(new SimpleMessage("nome", "O campo nome é obrigatório e precisa ter mais de 3 letras. Tente novamente."));
+			  }
+		if (cliente.getCpf() == null || cliente.getCpf().length() != 11) {
+			validator.add(new SimpleMessage("cpf", "O campo cpf é obrigatório e precisa ter 11 números. Tente novamente."));
+			  }
+		if (cliente.getCep() == null || cliente.getCep().length() != 8) {
+			validator.add(new SimpleMessage("cep", "O campo Cep precisa ter 8 números. Tente novamente."));
+			  }
+		if (cliente.getTelefone() == null) {
+			validator.add(new SimpleMessage("telefone", "O campo telefone é obrigatório. Tente novamente."));
+			  }
+		if (cliente.getRua() == null) {
+			validator.add(new SimpleMessage("rua", "O campo rua é obrigatório. Tente novamente."));
+			  }
+		if (cliente.getBairro() == null) {
+			validator.add(new SimpleMessage("bairro", "O campo bairro é obrigatório. Tente novamente."));
+			  }
+		if (cliente.getComplemento() == null) {
+			validator.add(new SimpleMessage("complemento", "O campo complemento é obrigatório. Tente novamente."));
+			  }
+		if (cliente.getCidade() == null) {
+			validator.add(new SimpleMessage("cidade", "O campo cidade é obrigatório. Tente novamente."));
+			  }			
+		validator.onErrorUsePageOf(ClienteController.class).formulario();
 		System.out.println("Nome: "+cliente.getNome()+"  Cidade: "+cliente.getCidade());
 		dao.salva(cliente);
 		this.result.redirectTo("/cliente/cadastro");
@@ -51,7 +77,7 @@ public class ClienteController {
 	}
 	
 	@Path("cliente/edita/{id}")
-	public Cliente edita(int id){
+	public Cliente edita(int id){		
 		return dao.carrega(id);
 	}
 	

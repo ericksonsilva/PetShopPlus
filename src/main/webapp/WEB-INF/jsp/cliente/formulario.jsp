@@ -2,7 +2,14 @@
 
       <section id="main-content">
           <section class="wrapper">
-            
+          
+            <div class="erros">
+			  <ul>
+			    <c:forEach items="${errors}" var="error">
+			     <li><h5>ERRO - ${error.message }</h5></li>
+			    </c:forEach>
+			  </ul>
+			</div>
             <h3> Cadastrar Cliente</h3>          
             <div class="row mt">
               <div class="col-lg-12">
@@ -32,6 +39,8 @@
                               <label class="col-sm-2 col-sm-2 control-label">Cep:</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="cliente.cep">
+                                  <span class="help-block">Não use hifen(-).</span>
+                                  
                               </div>
                           </div>
                           <div class="form-group">
