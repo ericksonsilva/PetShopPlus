@@ -30,7 +30,9 @@
 	<mapping class="br.com.petshopplus.model.Cliente" />
 	<mapping class="br.com.petshopplus.model.Funcionario" />
   <mapping class="br.com.petshopplus.model.Login" />
-    <mapping class="br.com.petshopplus.model.Produto" />
+  <mapping class="br.com.petshopplus.model.Produto" />
+  <mapping class="br.com.petshopplus.model.Servico" />
+  <mapping class="br.com.petshopplus.model.Consulta" />
   
 
 
