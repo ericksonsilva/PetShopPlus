@@ -19,9 +19,9 @@ public class Servico {
 	@NotNull (message="Nome precisa ser preenchido")
 	@Length(min=3, message="Nome precisa ter mais de 3 letras")
 		private String nome;
-	@NotNull (message="Sexo precisa ser preenchido")
+	@NotNull (message="Valor precisa ser preenchido")
 		private float valor;
-	@NotNull (message="Raça precisa ser preenchido")
+	@NotNull (message="Descrição precisa ser preenchido")
 		private String descricao;
 	
 	public int getId() {
