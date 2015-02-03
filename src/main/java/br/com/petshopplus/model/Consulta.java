@@ -3,14 +3,18 @@ package br.com.petshopplus.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name="Consultas")
@@ -20,11 +24,19 @@ public class Consulta {
 	@Id
 	private int id;
 	private Date data;
-	@NotNull (message="Nome precisa ser preenchido")
-	@Length(min=3, message="Descrição precisa ter mais de 3 letras")
 	private String descricao;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+	@ElementCollection(targetClass=Servico.class)
+	@Column(name = "SERVICO_ID")
 	private List<Servico> servico;
+	
+	@ManyToOne
+	@JoinColumn(name="cliente")
 	private Cliente cliente;
+	
+	@ManyToOne
+	@JoinColumn(name="animal")
 	private Animal animal;
 	
 	public int getId() {

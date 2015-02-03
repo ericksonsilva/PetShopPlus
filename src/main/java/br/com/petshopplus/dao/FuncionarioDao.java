@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
-import br.com.petshopplus.model.Cliente;
 import br.com.petshopplus.model.Funcionario;
 import br.com.petshopplus.persistence.HibernateUtil;
 
