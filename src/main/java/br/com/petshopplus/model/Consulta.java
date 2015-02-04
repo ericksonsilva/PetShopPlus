@@ -28,7 +28,7 @@ public class Consulta {
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 	@ElementCollection(targetClass=Servico.class)
-	@Column(name = "SERVICO_ID")
+	@Column(name = "servico_id")
 	private List<Servico> servico;
 	
 	@ManyToOne
