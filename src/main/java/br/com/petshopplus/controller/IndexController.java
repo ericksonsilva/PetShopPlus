@@ -31,8 +31,8 @@ public class IndexController {
 		this.facade = facade;
 	}
 	
-	//@Restrito
 	@Path("/home")
+	@Restrito
 	public void home() {
 	}
 
@@ -53,8 +53,8 @@ public class IndexController {
 	public void index() {	
 	}
 	
-	//@Restrito
 	@Path("/logout")
+	@Restrito
 	public void logout() {
 		Session.logout();
 		result.redirectTo("/");

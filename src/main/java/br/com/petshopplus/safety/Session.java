@@ -18,7 +18,7 @@ public class Session implements Serializable{
 	private static final long serialVersionUID = -6689661661871422801L;
 	private static Login login;
 	private static Funcionario funcionario;
-	private static boolean logado;
+	private static boolean logado = false;
 	
 	
 	public static void setSession(Login l) {

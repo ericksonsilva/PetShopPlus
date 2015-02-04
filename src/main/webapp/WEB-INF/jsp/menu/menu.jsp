@@ -44,12 +44,12 @@
       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <ul class="sidebar-menu" id="nav-accordion">
-              
-              	  <p class="centered"><a href="#"><img src="<c:url value="/images/imgUsuario.png"/>" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Franco Neto</h5>
-              	  	
+                  <div align="center">
+              	  <br><br><p><a href="#"><img src="<c:url value="/images/logo.png"/>"></a></p>
+              	  <br><br><h5 class="centered">Administrador</h5>
+              	  </div>
                   <li class="mt">
-                      <a class="active" href="#">
+                      <a class="active" href="home">
                           <i class="fa fa-dashboard"></i>
                           <span>Painel</span>
                       </a>
