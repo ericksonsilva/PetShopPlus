@@ -5,35 +5,51 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
+import br.com.petshopplus.dao.AnimalDao;
+import br.com.petshopplus.dao.ClienteDao;
 import br.com.petshopplus.dao.ConsultaDao;
+import br.com.petshopplus.dao.ServicoDao;
 import br.com.petshopplus.model.Consulta;
 
 @Controller
 public class ConsultaController {
 	private ConsultaDao dao;
 	private Result result;
+	private ClienteDao clienteDao;
+	private AnimalDao animalDao;
+	private ServicoDao servicoDao;
+
 	private Validator validator;
 
 	
 	protected ConsultaController() {
-		this(null, null,null);
+		this(null, null,null,null,null,null);
 	}
 	
 	@Inject
-	public ConsultaController(ConsultaDao dao,Result result,Validator validator) {
+	public ConsultaController(ConsultaDao dao,Result result,Validator validator,ClienteDao clienteDao,AnimalDao animalDao,ServicoDao servicoDao) {
 		this.dao = dao;
 		this.result = result;
 		this.validator = validator;
+		this.servicoDao = servicoDao;
+		this.clienteDao = clienteDao;
+		this.animalDao = animalDao;
 
 	}
 	
 	@Path("consulta/cadastro")
+	@Get
 	public void formulario(){
+		this.result.include("clientes", clienteDao.lista());
+		this.result.include("servicos", servicoDao.lista());
+		this.result.include("animais", animalDao.lista());
+		
 	}
 
 	@Path("consulta/adiciona")
