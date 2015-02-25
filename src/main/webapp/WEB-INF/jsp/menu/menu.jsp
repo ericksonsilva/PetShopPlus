@@ -100,6 +100,28 @@
                           <li><a  href="<c:url value="/produtos"/>">Listar</a></li>
                       </ul>
                   </li>
+                  
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-group"></i>
+                          <span>Serviço</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="<c:url value="/servico/cadastro"/>">Cadastrar</a></li> 
+                          <li><a  href="<c:url value="/servicos"/>">Listar</a></li>
+                      </ul>
+                  </li>
+                  
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-group"></i>
+                          <span>Consulta</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="<c:url value="/consulta/cadastro"/>">Cadastrar</a></li> 
+                          <li><a  href="<c:url value="/consultas"/>">Listar</a></li>
+                      </ul>
+                  </li>
               </ul>
           </div>
       </aside>          
