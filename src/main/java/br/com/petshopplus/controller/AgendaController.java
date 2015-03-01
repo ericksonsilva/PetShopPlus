@@ -20,16 +20,15 @@ import br.com.petshopplus.dao.AnimalDao;
 import br.com.petshopplus.dao.ClienteDao;
 import br.com.petshopplus.dao.FuncionarioDao;
 import br.com.petshopplus.model.Agenda;
-import br.com.petshopplus.safety.Session;
 
 @Controller
 public class AgendaController {
-	private AgendaDao dao;
-	private Result result;
-	private ClienteDao clienteDao;
-	private AnimalDao animalDao;
-	private Validator validator;
-	private FuncionarioDao funcionarioDao;
+	private final AgendaDao dao;
+	private final Result result;
+	private final ClienteDao clienteDao;
+	private final AnimalDao animalDao;
+	private final Validator validator;
+	private final FuncionarioDao funcionarioDao;
 
 	
 	protected AgendaController() {
