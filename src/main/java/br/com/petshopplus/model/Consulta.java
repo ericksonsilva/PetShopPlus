@@ -26,17 +26,16 @@ public class Consulta {
 	private Date data;
 	private String descricao;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
-	@ElementCollection(targetClass=Servico.class)
-	@Column(name = "servico_id")
-	private List<Servico> servico;
+	@ManyToOne
+	@JoinColumn(name = "servico_id")
+	private Servico servico;
 	
 	@ManyToOne
-	@JoinColumn(name="cliente")
+	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
 	
 	@ManyToOne
-	@JoinColumn(name="animal")
+	@JoinColumn(name="animal_id")
 	private Animal animal;
 	
 	public int getId() {
@@ -63,13 +62,6 @@ public class Consulta {
 		this.descricao = descricao;
 	}
 	
-	public List<Servico> getServico() {
-		return servico;
-	}
-	
-	public void setServico(List<Servico> servico) {
-		this.servico = servico;
-	}
 	
 	public Cliente getCliente() {
 		return cliente;
@@ -86,4 +78,12 @@ public class Consulta {
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
 	}
+	public void setServico(Servico servico) {
+		this.servico = servico;
+	}
+	
+	public Servico getServico() {
+		return servico;
+	}
+	
 }

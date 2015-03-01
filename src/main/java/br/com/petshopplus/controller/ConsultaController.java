@@ -55,6 +55,8 @@ public class ConsultaController {
 	@Path("consulta/adiciona")
 	@Post
 	public void adiciona(Consulta consulta){
+		System.out.println("Descrição: "+consulta.getDescricao()+" Animal: "+consulta.getAnimal().getId()
+				+" Cliente: "+consulta.getCliente().getId()+" Data: "+consulta.getData()+" Servico: "+consulta.getServico().getId());
 	    validator.validate(consulta);
 		validator.onErrorUsePageOf(this).formulario();
 		dao.salva(consulta);
@@ -89,7 +91,8 @@ public class ConsultaController {
 	
 	@Path("consultas")	
 	public List<Consulta> lista(){
-		return dao.lista();
+		this.result.include("consultas", dao.lista());
+		return null;
 	}
 	
 	public List<Consulta> lista(String nome){
