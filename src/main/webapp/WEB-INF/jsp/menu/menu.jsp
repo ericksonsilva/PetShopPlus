@@ -49,7 +49,7 @@
               	  <br><br><h5 class="centered">Administrador</h5>
               	  </div>
                   <li class="mt">
-                      <a class="active" href="home">
+                      <a class="active" href="${linkTo[IndexController].home}">
                           <i class="fa fa-dashboard"></i>
                           <span>Painel</span>
                       </a>

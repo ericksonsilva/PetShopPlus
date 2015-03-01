@@ -5,12 +5,9 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
-import br.com.caelum.vraptor.Delete;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
-import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
-import static br.com.caelum.vraptor.view.Results.*;
 import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.dao.ClienteDao;
@@ -41,9 +38,9 @@ public class ClienteController {
 	@Path("cliente/adiciona")
 	@Post
 	public void adiciona(Cliente cliente){
-	    validator.validate(cliente);
-		validator.onErrorRedirectTo(this).formulario();
+		validarCampos(cliente);
 		dao.salva(cliente);
+		result.include("success", "Incluído com sucesso.");
 		this.result.redirectTo("/cliente/cadastro");
 	}
 	
@@ -85,4 +82,20 @@ public class ClienteController {
 		return dao.lista(nome);
 	}
 
+	public void validarCampos(Cliente cliente){
+		if(cliente.getCpf()== null)	validator.add(new SimpleMessage("cpf", "O cpf deve ser preenchido"));
+		else if(cliente.getCpf().length() != 11) validator.add(new SimpleMessage("cpf", "O cpf deve conter 11 dígitos"));
+
+		if(cliente.getNome()== null)validator.add(new SimpleMessage("nome", "O nome deve ser preenchido"));
+		else if(cliente.getNome().length() < 3) validator.add(new SimpleMessage("nome", "O nome deve conter mais de 3 letras"));
+		
+		validator.addIf(cliente.getTelefone() == null, new SimpleMessage("telefone","O telefone deve ser preenchido"));
+		validator.addIf(cliente.getRua() == null, new SimpleMessage("rua","Rua deve ser preenchido"));
+		validator.addIf(cliente.getComplemento() == null, new SimpleMessage("complemento","O complemento deve ser preenchido"));
+		validator.addIf(cliente.getBairro() == null, new SimpleMessage("bairro","O Bairro deve ser preenchido"));
+		validator.addIf(cliente.getCidade() == null, new SimpleMessage("cidade","A cidade deve ser preenchido"));
+		validator.addIf(cliente.getCep() == null, new SimpleMessage("cep","O cep deve ser preenchido"));
+
+		validator.onErrorRedirectTo(this).formulario();
+	}
 }

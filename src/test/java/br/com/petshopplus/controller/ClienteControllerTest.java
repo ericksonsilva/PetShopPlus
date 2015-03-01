@@ -48,22 +48,20 @@ public class ClienteControllerTest {
 	@Test
 	public void shouldClientIsAdd() {
 		controller.adiciona(cliente);
-		assertThat(validator.getErrors(),empty());
+		assertTrue(result.included().containsKey("success"));
 	}
 	
 	@Test
 	public void shouldClientIsNotAdd() {
-		cliente.setCpf("0128");
+		cliente.setCpf(null);
 		try {
 	        controller.adiciona(cliente);
-	        fail("Não era pra ter passado do método acima, e sim entrado no catch");
+	        fail();
 	    } catch (ValidationException e) {
 	        List<Message> errors = e.getErrors();
-	        assertTrue(errors.contains(new SimpleMessage("cpf", "Cpf deve ter 11 dígitos")));
+	        assertTrue(errors.contains(new SimpleMessage("cpf", "O cpf deve ser preenchido")));
 	        assertEquals(1, errors.size());
 	    }
-		controller.adiciona(cliente);
-		assertThat(validator.getErrors(),empty());
 	}
-
+	
 }
