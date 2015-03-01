@@ -29,7 +29,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             
-            <a href="home" class="logo"><b>PETSHOPPLUS</b></a>
+            <a href="/PetShopPlus/home" class="logo"><b>PETSHOPPLUS</b></a>
            
 
 
@@ -49,7 +49,11 @@
               	  <br><br><h5 class="centered">Administrador</h5>
               	  </div>
                   <li class="mt">
+<<<<<<< HEAD
                       <a class="active" href="${linkTo[IndexController].home}">
+=======
+                      <a class="active" href="">
+>>>>>>> 82e9869608ff355b8d0e9849535a25a71100f6da
                           <i class="fa fa-dashboard"></i>
                           <span>Painel</span>
                       </a>
@@ -120,6 +124,18 @@
                       <ul class="sub">
                           <li><a  href="<c:url value="/consulta/cadastro"/>">Cadastrar</a></li> 
                           <li><a  href="<c:url value="/consultas"/>">Listar</a></li>
+                      </ul>
+                  </li>
+                  
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-group"></i>
+                          <span>Agenda</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="<c:url value="/agenda/cadastro"/>">Cadastrar</a></li> 
+                          <li><a  href="<c:url value="agendaList"/>">Listar</a></li>
+                          
                       </ul>
                   </li>
               </ul>
