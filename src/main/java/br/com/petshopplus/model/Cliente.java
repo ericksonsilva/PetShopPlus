@@ -22,7 +22,7 @@ public class Cliente {
 	@Id
 	private int id;
 	@NotNull (message="Cpf precisa ser preenchido")
-	@Length(min=11,message=" Cpf deve ter 11 dígitos")
+	@Length(min=11,message="Cpf deve ter 11 dígitos")
 		private String cpf;
 	@NotNull (message="Nome precisa ser preenchido")
 	@Length(min=3, message="Nome precisa ter mais de 3 letras")

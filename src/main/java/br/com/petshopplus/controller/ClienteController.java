@@ -42,7 +42,7 @@ public class ClienteController {
 	@Post
 	public void adiciona(Cliente cliente){
 	    validator.validate(cliente);
-		validator.onErrorUsePageOf(this).formulario();
+		validator.onErrorRedirectTo(this).formulario();
 		dao.salva(cliente);
 		this.result.redirectTo("/cliente/cadastro");
 	}
