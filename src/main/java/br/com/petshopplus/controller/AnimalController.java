@@ -13,6 +13,7 @@ import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.dao.AnimalDao;
 import br.com.petshopplus.dao.ClienteDao;
 import br.com.petshopplus.model.Animal;
+import br.com.petshopplus.model.Cliente;
 
 @Controller
 public class AnimalController {
@@ -42,9 +43,9 @@ public class AnimalController {
 		
 	}
 	public void adiciona(Animal animal){
-	    validator.validate(animal);
-		validator.onErrorUsePageOf(this).formulario();
+	    validarCampos(animal);
 		dao.salva(animal);
+		result.include("success", "Incluído com sucesso.");
 		this.result.redirectTo("/animal/cadastro");
 	}
 	
@@ -83,4 +84,18 @@ public class AnimalController {
 		return dao.lista(nome);
 	}
 	
+	public void validarCampos(Animal animal){
+		
+
+		if(animal.getNome()== null)validator.add(new SimpleMessage("nome", "O nome deve ser preenchido"));
+		else if(animal.getNome().length() < 3) validator.add(new SimpleMessage("nome", "O nome deve conter mais de 3 letras"));
+		
+		validator.addIf(animal.getSexo() == null, new SimpleMessage("sexo","O sexo deve ser preenchido"));
+		validator.addIf(animal.getRaca() == null, new SimpleMessage("raca","Raça deve ser preenchido"));
+		validator.addIf(animal.getEspecie() == null, new SimpleMessage("especie","A espécie deve ser preenchido"));
+		validator.addIf(animal.getPorte() == null, new SimpleMessage("porte","O porte deve ser preenchido"));
+		validator.addIf(animal.getIdade() == null, new SimpleMessage("idade","A idade deve ser preenchido"));
+
+		validator.onErrorRedirectTo(this).formulario();
+	}
 }
