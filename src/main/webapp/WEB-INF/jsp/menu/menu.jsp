@@ -29,7 +29,7 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             
-            <a href="home" class="logo"><b>PETSHOPPLUS</b></a>
+            <a href="/PetShopPlus/home" class="logo"><b>PETSHOPPLUS</b></a>
            
 
 
@@ -49,7 +49,7 @@
               	  <br><br><h5 class="centered">Administrador</h5>
               	  </div>
                   <li class="mt">
-                      <a class="active" href="home">
+                      <a class="active" href="">
                           <i class="fa fa-dashboard"></i>
                           <span>Painel</span>
                       </a>

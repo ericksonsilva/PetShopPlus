@@ -33,6 +33,17 @@
 									</select>
                               </div>
                           </div>
+
+                          <div class="form-group">
+                              <label for="cliente" class="col-sm-2 col-sm-2 control-label">Cliente:</label>
+                              <div class="col-sm-10">
+                                   <select class="form-control" name="consulta.cliente.id" >
+                                   <c:forEach items="${clientes}" var = "cliente">
+									  <option  value="${cliente.id}">${cliente.nome}</option>
+									  </c:forEach>
+									</select>
+                              </div>
+                          </div>
                           
                           <div class="form-group">
                               <label for="animal" class="col-sm-2 col-sm-2 control-label">Animal:</label>
@@ -44,17 +55,7 @@
 									</select>
                               </div>
                           </div>
-                          
-                          <div class="form-group">
-                              <label for="cliente" class="col-sm-2 col-sm-2 control-label">Dono:</label>
-                              <div class="col-sm-10">
-                                   <select class="form-control" name="consulta.cliente.id" >
-                                   <c:forEach items="${clientes}" var = "cliente">
-									  <option  value="${cliente.id}">${cliente.nome}</option>
-									  </c:forEach>
-									</select>
-                              </div>
-                          </div>
+                                                    
                           <button type="submit" class="btn btn-primary btnCadastro">
 								Cadastrar
 						  </button>
