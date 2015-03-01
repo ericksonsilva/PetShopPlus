@@ -57,6 +57,9 @@ public class ClienteController {
 	@Path("cliente/remove/{id}")
 	public void remove(int id){
 		Cliente cliente = this.busca(id); 
+		validator.check(cliente != null, new SimpleMessage("id", "Usuário não encontrado ou aconteceu algum erro na busca."));
+		validator.onErrorUsePageOf(this).lista();
+		result.include("success", "Excluído com sucesso.");
 		dao.remove(cliente);
 		this.result.redirectTo("/clientes");
 	}

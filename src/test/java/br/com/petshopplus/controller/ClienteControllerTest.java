@@ -1,16 +1,14 @@
 package br.com.petshopplus.controller;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.Matchers.empty;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.when;
 
-import java.awt.print.Printable;
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.Matchers.empty;
-
-import org.apache.taglibs.standard.tag.common.xml.WhenTag;
-import org.hamcrest.core.IsEqual;
-import org.jboss.weld.annotated.EmptyAnnotated;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -64,4 +62,24 @@ public class ClienteControllerTest {
 	    }
 	}
 	
+	@Test
+	public void shouldClientRemoved() {
+		when(dao.carrega(cliente.getId())).thenReturn(cliente);
+		controller.remove(cliente.getId());
+		assertThat(validator.getErrors(), empty());
+		assertTrue(result.included().containsKey("success"));
+	}
+	
+	@Test
+	public void shouldClientRemovedError() {
+		int idInvalido = 999;
+		when(dao.carrega(idInvalido)).thenReturn(cliente);
+		try{
+			controller.remove(cliente.getId());	
+		}catch (ValidationException e) {
+	        List<Message> errors = e.getErrors();
+	        assertTrue(errors.contains(new SimpleMessage("id", "Usuário não encontrado ou aconteceu algum erro na busca.")));
+	        assertEquals(1, errors.size());
+	    }
+	}
 }
