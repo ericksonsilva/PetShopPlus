@@ -122,6 +122,18 @@
                           <li><a  href="<c:url value="/consultas"/>">Listar</a></li>
                       </ul>
                   </li>
+                  
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-group"></i>
+                          <span>Agenda</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="<c:url value="/agenda/cadastro"/>">Cadastrar</a></li> 
+                          <li><a  href="<c:url value="agendaList"/>">Listar</a></li>
+                          
+                      </ul>
+                  </li>
               </ul>
           </div>
       </aside>          
