@@ -15,11 +15,8 @@ public class Produto {
 	@Id
 	private int id;
 	
-	@NotNull (message="Nome precisa ser preenchido")
 		private String nome;
-	@NotNull (message="Preço precisa ser preenchido")
 		private double preco;
-	@NotNull (message="Descriçao precisa ser preenchido")
 		private String descricao;	
 
 

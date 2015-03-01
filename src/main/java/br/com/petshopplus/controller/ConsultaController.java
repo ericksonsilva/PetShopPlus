@@ -10,11 +10,13 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.dao.AnimalDao;
 import br.com.petshopplus.dao.ClienteDao;
 import br.com.petshopplus.dao.ConsultaDao;
 import br.com.petshopplus.dao.ServicoDao;
+import br.com.petshopplus.model.Animal;
 import br.com.petshopplus.model.Consulta;
 
 @Controller
@@ -57,9 +59,9 @@ public class ConsultaController {
 	public void adiciona(Consulta consulta){
 		System.out.println("Descrição: "+consulta.getDescricao()+" Animal: "+consulta.getAnimal().getId()
 				+" Cliente: "+consulta.getCliente().getId()+" Data: "+consulta.getData()+" Servico: "+consulta.getServico().getId());
-	    validator.validate(consulta);
-		validator.onErrorUsePageOf(this).formulario();
+	    validarCampos(consulta);
 		dao.salva(consulta);
+		result.include("success", "Incluído com sucesso.");
 		this.result.redirectTo("/consulta/cadastro");
 	}	
 	
@@ -97,5 +99,13 @@ public class ConsultaController {
 	
 	public List<Consulta> lista(String nome){
 		return dao.lista(nome);
+	}
+	
+public void validarCampos(Consulta consulta){
+				
+		validator.addIf(consulta.getDescricao() == null, new SimpleMessage("descricao","A descrição deve ser preenchida"));
+		validator.addIf(consulta.getData() == null, new SimpleMessage("data","A data deve ser preenchida"));		
+
+		validator.onErrorRedirectTo(this).formulario();
 	}
 }

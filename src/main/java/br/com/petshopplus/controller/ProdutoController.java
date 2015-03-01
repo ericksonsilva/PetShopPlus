@@ -10,8 +10,10 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.dao.ProdutoDao;
+import br.com.petshopplus.model.Cliente;
 import br.com.petshopplus.model.Produto;
 
 @Controller
@@ -79,5 +81,17 @@ public class ProdutoController {
 	
 	public List<Produto> lista(String nome){
 		return dao.lista(nome);
+	}
+	
+	public void validarCampos(Produto produto){
+		
+		if(produto.getNome()== null)validator.add(new SimpleMessage("nome", "O nome deve ser preenchido"));
+		else if(produto.getNome().length() < 3) validator.add(new SimpleMessage("nome", "O nome deve conter mais de 3 letras"));
+		
+		validator.addIf(produto.getDescricao() == null, new SimpleMessage("descricao","A descrção deve ser preenchido"));
+		validator.addIf(produto.getPreco() == 0.0, new SimpleMessage("valor","O preço deve ser preenchido"));
+
+
+		validator.onErrorRedirectTo(this).formulario();
 	}
 }

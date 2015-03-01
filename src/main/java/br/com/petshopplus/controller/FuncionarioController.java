@@ -12,6 +12,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.dao.FuncionarioDao;
+import br.com.petshopplus.model.Cliente;
 import br.com.petshopplus.model.Funcionario;
 
 @Controller
@@ -37,9 +38,9 @@ public class FuncionarioController {
 	@Path("funcinario/adiciona")
 	@Post
 	public void adiciona(Funcionario funcionario){
-	    validator.validate(funcionario);
-		validator.onErrorUsePageOf(this).formulario();
+	    validarCampos(funcionario);
 		dao.salva(funcionario);
+		result.include("success", "Incluído com sucesso.");
 		this.result.redirectTo("/funcionario/cadastro");
 	}	
 	
@@ -82,4 +83,19 @@ public class FuncionarioController {
 		return dao.lista(nome);
 	}
 
+	public void validarCampos(Funcionario funcionario){
+		if(funcionario.getCpf()== null)	validator.add(new SimpleMessage("cpf", "O cpf deve ser preenchido"));
+		else if(funcionario.getCpf().length() != 11) validator.add(new SimpleMessage("cpf", "O cpf deve conter 11 dígitos"));
+
+		if(funcionario.getNome()== null)validator.add(new SimpleMessage("nome", "O nome deve ser preenchido"));
+		else if(funcionario.getNome().length() < 3) validator.add(new SimpleMessage("nome", "O nome deve conter mais de 3 letras"));
+		
+		validator.addIf(funcionario.getTelefone() == null, new SimpleMessage("telefone","O telefone deve ser preenchido"));
+		validator.addIf(funcionario.getRua() == null, new SimpleMessage("rua","Rua deve ser preenchido"));
+		validator.addIf(funcionario.getComplemento() == null, new SimpleMessage("complemento","O complemento deve ser preenchido"));
+		validator.addIf(funcionario.getBairro() == null, new SimpleMessage("bairro","O Bairro deve ser preenchido"));
+		validator.addIf(funcionario.getCidade() == null, new SimpleMessage("cidade","A cidade deve ser preenchido"));
+
+		validator.onErrorRedirectTo(this).formulario();
+	}
 }

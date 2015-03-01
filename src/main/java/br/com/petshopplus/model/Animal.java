@@ -18,18 +18,12 @@ public class Animal {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Id
 	private int id;
-	@NotNull (message="Nome precisa ser preenchido")
-	@Length(min=3, message="Nome precisa ter mais de 3 letras")
+	
 		private String nome;
-	@NotNull (message="Sexo precisa ser preenchido")
 		private String sexo;
-	@NotNull (message="Raça precisa ser preenchido")
 		private String raca;
-	@NotNull (message="Espécie precisa ser preenchido")
 		private String especie;
-	@NotNull (message="Porte precisa ser preenchido")
 		private String porte;
-	@NotNull (message="Idade precisa ser preenchido")
 		private String idade;
 	
 	@ManyToOne
