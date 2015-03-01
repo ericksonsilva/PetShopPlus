@@ -28,19 +28,7 @@
                                   <textarea  class="form-control" name="agenda.descricao" value="${agenda.descricao}"></textarea>
                               </div>
                           </div>
-                                                                             
-                      
-                          <div class="form-group">
-                              <label for="animal" class="col-sm-2 col-sm-2 control-label">Animal:</label>
-                              <div class="col-sm-10">
-                                   <select class="form-control" name="agenda.animal.id" >
-                                   <c:forEach items="${animais}" var = "animal">
-									  <option  value="${animal.id}">${animal.nome}</option>
-									  </c:forEach>
-									</select>
-                              </div>
-                          </div>
-                          
+                                                          
                           <div class="form-group">
                               <label for="cliente" class="col-sm-2 col-sm-2 control-label">Dono:</label>
                               <div class="col-sm-10">
@@ -51,6 +39,29 @@
 									</select>
                               </div>
                           </div>
+
+                          <div class="form-group">
+                              <label for="animal" class="col-sm-2 col-sm-2 control-label">Animal:</label>
+                              <div class="col-sm-10">
+                                   <select class="form-control" name="agenda.animal.id" >
+                                   <c:forEach items="${animais}" var = "animal">
+									  <option  value="${animal.id}">${animal.nome}</option>
+									  </c:forEach>
+									</select>
+                              </div>
+                          </div>
+
+                          <div class="form-group">
+                              <label for="animal" class="col-sm-2 col-sm-2 control-label">Funcionário responsável:</label>
+                              <div class="col-sm-10">
+                                   <select class="form-control" name="agenda.funcionario.id" >
+                                   <c:forEach items="${funcionarios}" var = "funcionario">
+									  <option  value="${funcionario.id}">${funcionario.nome}</option>
+									  </c:forEach>
+									</select>
+                              </div>
+                          </div>
+
                           <button type="submit" class="btn btn-primary btnCadastro">
 								Cadastrar
 						  </button>

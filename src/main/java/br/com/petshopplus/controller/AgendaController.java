@@ -18,10 +18,9 @@ import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.dao.AgendaDao;
 import br.com.petshopplus.dao.AnimalDao;
 import br.com.petshopplus.dao.ClienteDao;
-import br.com.petshopplus.dao.ConsultaDao;
-import br.com.petshopplus.dao.ServicoDao;
+import br.com.petshopplus.dao.FuncionarioDao;
 import br.com.petshopplus.model.Agenda;
-import br.com.petshopplus.model.Consulta;
+import br.com.petshopplus.safety.Session;
 
 @Controller
 public class AgendaController {
@@ -29,21 +28,23 @@ public class AgendaController {
 	private Result result;
 	private ClienteDao clienteDao;
 	private AnimalDao animalDao;
-
 	private Validator validator;
+	private FuncionarioDao funcionarioDao;
 
 	
 	protected AgendaController() {
-		this(null, null,null,null,null);
+		this(null, null,null,null,null, null);
 	}
 	
 	@Inject
-	public AgendaController(AgendaDao dao,Result result,Validator validator,ClienteDao clienteDao,AnimalDao animalDao) {
+	public AgendaController(AgendaDao dao,Result result,Validator validator,ClienteDao clienteDao,AnimalDao animalDao, FuncionarioDao funcionarioDao) {
 		this.dao = dao;
 		this.result = result;
 		this.validator = validator;
 		this.clienteDao = clienteDao;
 		this.animalDao = animalDao;
+		this.funcionarioDao = funcionarioDao;
+
 
 	}
 	
@@ -52,6 +53,7 @@ public class AgendaController {
 	public void formulario(){
 		this.result.include("clientes", clienteDao.lista());
 		this.result.include("animais", animalDao.lista());
+		this.result.include("funcionarios", funcionarioDao.lista());
 		
 	}
 

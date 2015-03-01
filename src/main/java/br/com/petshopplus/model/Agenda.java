@@ -49,6 +49,9 @@ public class Agenda {
 	@JoinColumn(name="animal_id")
 	private Animal animal;
 	
+	@ManyToOne
+	@JoinColumn(name="funcionario_id")
+	private Funcionario funcionario;
 	
 	
 	public int getId() {
@@ -91,5 +94,15 @@ public class Agenda {
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
 	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+	
+	
 	
 }
