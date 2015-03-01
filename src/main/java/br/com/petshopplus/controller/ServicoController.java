@@ -12,7 +12,6 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.dao.ServicoDao;
-import br.com.petshopplus.model.Produto;
 import br.com.petshopplus.model.Servico;
 
 @Controller

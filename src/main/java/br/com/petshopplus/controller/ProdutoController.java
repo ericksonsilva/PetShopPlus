@@ -5,7 +5,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
-import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
@@ -13,7 +12,6 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.dao.ProdutoDao;
-import br.com.petshopplus.model.Cliente;
 import br.com.petshopplus.model.Produto;
 
 @Controller

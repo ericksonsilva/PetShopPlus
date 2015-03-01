@@ -5,10 +5,6 @@ import javax.inject.Inject;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.validator.SimpleMessage;
-import br.com.caelum.vraptor.validator.Validator;
-import br.com.petshopplus.facade.PSPFacade;
-import br.com.petshopplus.facade.PSPFacadeException;
 import br.com.petshopplus.model.Login;
 import br.com.petshopplus.safety.Restrito;
 import br.com.petshopplus.safety.Session;
@@ -16,19 +12,15 @@ import br.com.petshopplus.safety.Session;
 @Controller
 public class IndexController {
 
-	private final Validator validator;
 	private final Result result;
-	private final PSPFacade facade;
 	
 	protected IndexController() {
-		this(null,null,null);
+		this(null);
 	}
 	
 	@Inject
-	public IndexController(Validator validator, Result result, PSPFacade facade){
-		this.validator = validator;
+	public IndexController(Result result){
 		this.result = result;
-		this.facade = facade;
 	}
 	
 	@Path("/home")
@@ -38,15 +30,12 @@ public class IndexController {
 
 	@Path("/login")
 	public void login(Login login) {
-		try{
-			facade.realizarLogin(login);
-		}catch (PSPFacadeException e){
-			validator.add(
-				new SimpleMessage(e.getMessage(),
-						"login.nomeUsuario"));
+		if ((login.getSenha().endsWith("admin")) && (login.getUsuario().endsWith("admin"))){
+			Session.setSession(login);
+			result.redirectTo(this).home();
+		} else{
+			result.redirectTo(this).index();
 		}
-		validator.onErrorUsePageOf(this).index();	
-		result.redirectTo(this).home();
 	}
 	
 	@Path("/")

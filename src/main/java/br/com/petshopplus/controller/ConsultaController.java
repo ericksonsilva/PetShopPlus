@@ -16,7 +16,6 @@ import br.com.petshopplus.dao.AnimalDao;
 import br.com.petshopplus.dao.ClienteDao;
 import br.com.petshopplus.dao.ConsultaDao;
 import br.com.petshopplus.dao.ServicoDao;
-import br.com.petshopplus.model.Animal;
 import br.com.petshopplus.model.Consulta;
 
 @Controller

@@ -13,7 +13,6 @@ import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.dao.AnimalDao;
 import br.com.petshopplus.dao.ClienteDao;
 import br.com.petshopplus.model.Animal;
-import br.com.petshopplus.model.Cliente;
 
 @Controller
 public class AnimalController {
