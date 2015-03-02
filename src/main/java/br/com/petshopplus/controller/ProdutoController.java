@@ -40,8 +40,9 @@ public class ProdutoController {
 	@Path("produto/adiciona")
 	@Post
 	public void adiciona(Produto produto){
-	    validator.validate(produto);
+	    validarCampos(produto);
 		validator.onErrorUsePageOf(this).formulario();
+		result.include("success", "Incluído com sucesso.");
 		dao.salva(produto);
 		this.result.redirectTo("/produto/cadastro");
 	}	
