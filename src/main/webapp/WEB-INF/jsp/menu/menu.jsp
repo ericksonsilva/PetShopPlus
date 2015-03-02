@@ -92,7 +92,7 @@
                   
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-group"></i>
+                          <i class="fa fa-shopping-cart"></i>
                           <span>Produto</span>
                       </a>
                       <ul class="sub">
@@ -103,7 +103,7 @@
                   
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-group"></i>
+                          <i class="fa fa-truck"></i>
                           <span>Serviço</span>
                       </a>
                       <ul class="sub">
@@ -114,7 +114,7 @@
                   
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-group"></i>
+                          <i class="fa fa-calendar"></i>
                           <span>Consulta</span>
                       </a>
                       <ul class="sub">
@@ -125,7 +125,7 @@
                   
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-group"></i>
+                          <i class="fa fa-calendar-o"></i>
                           <span>Agenda</span>
                       </a>
                       <ul class="sub">

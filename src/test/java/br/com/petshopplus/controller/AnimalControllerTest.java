@@ -52,7 +52,7 @@ public class AnimalControllerTest {
 	public void shouldAnimalIsNotAddNomeIsNull() {
 		animal.setNome(null);
 		try {
-	        controller.adiciona(animal);
+	        controller.adiciona(animal);	
 	        fail("Não deve passar pelo metodo acima");
 	    } catch (ValidationException e) {
 	        List<Message> errors = e.getErrors();
