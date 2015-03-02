@@ -61,7 +61,11 @@ public class AnimalController {
 	}
 	
 	@Path("animal/remove/{id}")
-	public void remove(Animal animal){
+	public void remove(int id){
+		Animal animal = this.busca(id);
+		validator.check(animal != null, new SimpleMessage("id", "Animal não encontrado ou aconteceu algum erro na busca."));
+		validator.onErrorUsePageOf(this).lista();
+		result.include("success", "Excluído com sucesso.");
 		dao.remove(animal);
 	}
 	

@@ -1,10 +1,7 @@
 package br.com.petshopplus.controller;
 
 import static org.hamcrest.Matchers.empty;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
@@ -19,55 +16,43 @@ import br.com.caelum.vraptor.util.test.MockValidator;
 import br.com.caelum.vraptor.validator.Message;
 import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.ValidationException;
+import br.com.petshopplus.dao.AnimalDao;
 import br.com.petshopplus.dao.ClienteDao;
-import br.com.petshopplus.model.Cliente;
-import br.com.petshopplus.util.model.ClienteBuilder;
+import br.com.petshopplus.model.Animal;
+import br.com.petshopplus.util.model.AnimalBuilder;
 
-public class ClienteControllerTest {
+public class AnimalControllerTest {
 	private MockResult result;
 	private MockValidator validator;
-	private ClienteController controller;
+	private AnimalController controller;
 	@Mock
-	private ClienteDao dao;
-
-	private Cliente cliente;
+	private AnimalDao animalDao;
+	@Mock
+	private ClienteDao clienteDao;
+	private Animal animal;
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
 		result = new MockResult();
 		validator = new MockValidator();
-		controller = new ClienteController(dao, result, validator);
-
-		cliente = new ClienteBuilder().withCPF("07680714452").withNome("Neto").withTelefone("87284395").
-				withRua("Manoel Roberto").withCep("58052562").withCidade("João Pessoa").withBairro("Bancários").
-				withEmail("netom.m@hotmail.com").withComplemento("B2").build();
+		controller = new AnimalController(animalDao, clienteDao, result, validator);
+		
+		animal = new AnimalBuilder().withNome("Bidu").withSexo("Macho").withRaca("Pitbull").withEspecie("Cao").
+				withPorte("Grande").withIdade("10").build();
 	}
 
 	@Test
-	public void shouldClientIsAdd() {
-		controller.adiciona(cliente);
+	public void shouldAnimalIsAdd() {
+		controller.adiciona(animal);
 		assertTrue(result.included().containsKey("success"));
 		assertThat(validator.getErrors(), empty());
 	}
 	
 	@Test
-	public void shouldClientIsNotAddCpfIsNull() {
-		cliente.setCpf(null);
+	public void shouldAnimalIsNotAddNomeIsNull() {
+		animal.setNome(null);
 		try {
-	        controller.adiciona(cliente);
-	        fail("Não deve passar pelo metodo acima");
-	    } catch (ValidationException e) {
-	        List<Message> errors = e.getErrors();
-	        assertTrue(errors.contains(new SimpleMessage("cpf", "O cpf deve ser preenchido")));
-	        assertEquals(1, errors.size());
-	    }
-	}
-	
-	@Test
-	public void shouldClientIsNotAddNomeIsNull() {
-		cliente.setNome(null);
-		try {
-	        controller.adiciona(cliente);
+	        controller.adiciona(animal);
 	        fail("Não deve passar pelo metodo acima");
 	    } catch (ValidationException e) {
 	        List<Message> errors = e.getErrors();
@@ -77,22 +62,35 @@ public class ClienteControllerTest {
 	}
 	
 	@Test
-	public void shouldClientIsNotAddTelefoneIsNull() {
-		cliente.setTelefone(null);
+	public void shouldAnimalIsNotAddSexoIsNull() {
+		animal.setSexo(null);
 		try {
-	        controller.adiciona(cliente);
+	        controller.adiciona(animal);
 	        fail("Não deve passar pelo metodo acima");
 	    } catch (ValidationException e) {
 	        List<Message> errors = e.getErrors();
-	        assertTrue(errors.contains(new SimpleMessage("telefone", "O telefone deve ser preenchido")));
+	        assertTrue(errors.contains(new SimpleMessage("sexo", "O sexo deve ser preenchido")));
 	        assertEquals(1, errors.size());
 	    }
 	}
 	
 	@Test
-	public void shouldClientRemoved() {
-		when(dao.carrega(cliente.getId())).thenReturn(cliente);
-		controller.remove(cliente.getId());
+	public void shouldAnimalIsNotAddRacaIsNull() {
+		animal.setRaca(null);
+		try {
+	        controller.adiciona(animal);
+	        fail("Não deve passar pelo metodo acima");
+	    } catch (ValidationException e) {
+	        List<Message> errors = e.getErrors();
+	        assertTrue(errors.contains(new SimpleMessage("raca", "Raça deve ser preenchido")));
+	        assertEquals(1, errors.size());
+	    }
+	}
+	
+	@Test
+	public void shouldAnimalRemoved() {
+		when(animalDao.carrega(animal.getId())).thenReturn(animal);
+		controller.remove(animal.getId());
 		assertThat(validator.getErrors(), empty());
 		assertTrue(result.included().containsKey("success"));
 	}
@@ -100,12 +98,12 @@ public class ClienteControllerTest {
 	@Test
 	public void shouldClientRemovedError() {
 		int idInvalido = 999;
-		when(dao.carrega(idInvalido)).thenReturn(cliente);
+		when(animalDao.carrega(idInvalido)).thenReturn(animal);
 		try{
-			controller.remove(cliente.getId());	
+			controller.remove(animal.getId());	
 		}catch (ValidationException e) {
 	        List<Message> errors = e.getErrors();
-	        assertTrue(errors.contains(new SimpleMessage("id", "Usuário não encontrado ou aconteceu algum erro na busca.")));
+	        assertTrue(errors.contains(new SimpleMessage("id", "Animal não encontrado ou aconteceu algum erro na busca.")));
 	        assertEquals(1, errors.size());
 	    }
 	}
