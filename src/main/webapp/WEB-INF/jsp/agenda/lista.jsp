@@ -30,7 +30,7 @@
 	              	              <td>${marcados.funcionario.nome}</td>
 	              	              <td>
 	              	                <a href="agenda/edita/${agenda.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-	              	                <a href="agenda/desmarcar/${agenda.id}" class="btn btn-danger btn-xs" onclick="return confirm('Deseja realmente desmarcar?');">desmarcar</a>
+	              	                <a href="agenda/desmarcar/${agenda.id}" class="btn btn-danger btn-xs"  onclick="return confirm('Deseja realmente desmarcar?');"><i class="fa fa-times"></i></a>
                                   </td>
 	              	          </tr>
 	              	    	  </c:forEach>
