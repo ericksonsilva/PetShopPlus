@@ -54,13 +54,16 @@ public class AgendaController {
 		this.result.include("animais", animalDao.lista());
 		this.result.include("funcionarios", funcionarioDao.lista());
 		
+		
 	}
 
 	@Path("agenda/adiciona")
 	@Post
 	public void adiciona(Agenda agenda){
+		System.out.println("Hora: "+agenda.getHora());
 	    validator.validate(agenda);
 		validator.onErrorUsePageOf(this).formulario();
+		agenda.setMarcado(true);
 		dao.salva(agenda);
 		this.result.redirectTo("/agenda/cadastro");
 	}	
@@ -82,6 +85,14 @@ public class AgendaController {
 		dao.remove(consulta);
 		this.result.redirectTo("/marcados");
 	}
+	@Put("agenda/desmarcar/{id}")
+	public void desmarcar(int id){
+		Agenda agenda = this.busca(id); 
+		agenda.setMarcado(false);
+		dao.atualiza(agenda);
+		System.out.println("veio");
+		this.result.redirectTo("/marcados");
+	}
 	
 	public Agenda busca(int id){
 		return dao.carrega(id);
@@ -100,6 +111,7 @@ public class AgendaController {
 		List<Agenda> agendados = dao.lista();
 		List<Agenda> allagendados = new ArrayList<Agenda>();
 		for (Agenda agenda : agendados) {
+		
 			if(agenda.isMarcado() && diamesano(dateFormat.format(agenda.getData())) >=diamesano(dataHoje)){
 				allagendados.add(agenda);
 			}
@@ -130,9 +142,11 @@ public class AgendaController {
 	}
 	
 	private int diamesano(String data){
-		String datas[] = data.split("/");
-		String dt = datas[0]+datas[1]+datas[2];
+		String datas[] = new String[8];
+		datas=data.split("/");
+		String dt = datas[0]+""+datas[1]+""+datas[2];
 		int anomesdia = Integer.parseInt(dt);
+		
 		return anomesdia;
 	}
 	

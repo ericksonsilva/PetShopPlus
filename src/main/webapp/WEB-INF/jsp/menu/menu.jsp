@@ -130,7 +130,7 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="<c:url value="/agenda/cadastro"/>">Cadastrar</a></li> 
-                          <li><a  href="<c:url value="agendaList"/>">Listar</a></li>
+                          <li><a  href="<c:url value="/marcados"/>">Listar</a></li>
                           
                       </ul>
                   </li>

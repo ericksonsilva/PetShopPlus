@@ -61,7 +61,6 @@
 									</select>
                               </div>
                           </div>
-
                           <button type="submit" class="btn btn-primary btnCadastro">
 								Cadastrar
 						  </button>

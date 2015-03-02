@@ -22,14 +22,14 @@ public class Agenda {
 	private Date data;
 	private String descricao;
 	
-	private Time hora;
+	private String hora;
 	private boolean marcado;
 	
-	public Time getHora() {
+	public String getHora() {
 		return hora;
 	}
 
-	public void setHora(Time hora) {
+	public void setHora(String hora) {
 		this.hora = hora;
 	}
 
