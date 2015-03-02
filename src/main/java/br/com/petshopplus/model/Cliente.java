@@ -102,7 +102,7 @@ public class Cliente {
 	public void setCep(String cep) {
 		this.cep = cep;
 	}
-
+	
 	public String getEmail() {
 		return email;
 	}
