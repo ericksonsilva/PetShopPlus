@@ -70,6 +70,7 @@ public class AgendaController {
 	
 	@Put
 	public void atualiza(Agenda agenda){
+		agenda.setMarcado(true);
 		dao.atualiza(agenda);
 		this.result.redirectTo("/marcados");
 	}
@@ -85,15 +86,25 @@ public class AgendaController {
 		dao.remove(consulta);
 		this.result.redirectTo("/marcados");
 	}
-	@Put("agenda/desmarcar/{id}")
+	@Path("agenda/desmarcar/{id}")
 	public void desmarcar(int id){
 		Agenda agenda = this.busca(id); 
 		agenda.setMarcado(false);
-		dao.atualiza(agenda);
 		System.out.println("veio");
+		this.dao.atualiza(agenda);
+		
 		this.result.redirectTo("/marcados");
 	}
 	
+	@Path("agenda/remarcar/{id}")
+	public void remarcar(int id){
+		Agenda agenda = this.busca(id); 
+		agenda.setMarcado(true);
+		System.out.println("veio");
+		this.dao.atualiza(agenda);
+		
+		this.result.redirectTo("/marcados");
+	}
 	public Agenda busca(int id){
 		return dao.carrega(id);
 	}
@@ -105,8 +116,9 @@ public class AgendaController {
 	@Path("marcados")	
 	public List<Agenda> lista(){
 		Date data = new Date();
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		String dataHoje = dateFormat.format(data);
+		System.out.println("dataHoje: "+dataHoje);
 		
 		List<Agenda> agendados = dao.lista();
 		List<Agenda> allagendados = new ArrayList<Agenda>();
@@ -124,8 +136,9 @@ public class AgendaController {
 	@Path("desmarcados")	
 	public List<Agenda> listaDesmarcados(){
 		Date data = new Date();
-		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		String dataHoje = dateFormat.format(data);
+		
 		
 		List<Agenda> agendados = dao.lista();
 		List<Agenda> alldesmarcados = new ArrayList<Agenda>();
@@ -146,7 +159,7 @@ public class AgendaController {
 		datas=data.split("/");
 		String dt = datas[0]+""+datas[1]+""+datas[2];
 		int anomesdia = Integer.parseInt(dt);
-		
+		System.out.println("anomesdia: "+anomesdia);
 		return anomesdia;
 	}
 	

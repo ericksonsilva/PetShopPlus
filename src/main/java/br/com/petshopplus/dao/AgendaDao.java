@@ -25,6 +25,10 @@ public class AgendaDao {
 	}
 	
 	public void atualiza(Agenda agenda) {
+		System.out.println("animal: "+agenda.getAnimal().getNome()+" hora:"+agenda.getHora()
+				+" id: "+agenda.getId()+" descricao: "+agenda.getDescricao()+
+				" cliente: "+agenda.getCliente().getNome()
+				);
 		Transaction tx = session.beginTransaction();
 		this.session.update(agenda);
 		tx.commit();
@@ -41,7 +45,7 @@ public class AgendaDao {
 	}
 	
 	public Agenda carrega(Agenda agenda) {
-		return (Agenda) session.createCriteria(Consulta.class)
+		return (Agenda) session.createCriteria(Agenda.class)
 		.add(Restrictions.eq("id", agenda.getId()))
 		.uniqueResult();
 	}
