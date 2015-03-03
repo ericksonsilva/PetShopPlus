@@ -15,7 +15,7 @@ public class Servico {
 	private int id;
 
 		private String nome;
-		private float valor;
+		private double valor;
 		private String descricao;
 	
 	public int getId() {
@@ -34,11 +34,11 @@ public class Servico {
 		this.nome = nome;
 	}
 	
-	public float getValor() {
+	public double getValor() {
 		return valor;
 	}
 	
-	public void setValor(float valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
 	}
 	
