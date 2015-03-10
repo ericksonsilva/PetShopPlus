@@ -12,21 +12,25 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.dao.FuncionarioDao;
+import br.com.petshopplus.dao.LoginDao;
 import br.com.petshopplus.model.Funcionario;
+import br.com.petshopplus.model.Login;
 
 @Controller
 public class FuncionarioController {
-	private final FuncionarioDao dao;
+	private final FuncionarioDao funcDao;
+	private final LoginDao loginDao;
 	private final Result result;
 	private final Validator validator;
 	
 	protected FuncionarioController() {
-		this(null, null, null);
+		this(null, null, null, null);
 	}
 	
 	@Inject
-	public FuncionarioController(FuncionarioDao dao,Result result,Validator validator) {
-		this.dao = dao;
+	public FuncionarioController(FuncionarioDao funcDao, LoginDao loginDao,Result result,Validator validator) {
+		this.funcDao = funcDao;
+		this.loginDao = loginDao;
 		this.result = result;
 		this.validator = validator;
 	}
@@ -36,50 +40,52 @@ public class FuncionarioController {
 
 	@Path("funcinario/adiciona")
 	@Post
-	public void adiciona(Funcionario funcionario){
+	public void adiciona(Funcionario funcionario, Login login){
 	    validarCampos(funcionario);
-		dao.salva(funcionario);
+		funcDao.salva(funcionario);
+		login.setFuncionario(funcionario);
+		loginDao.salva(login);
 		result.include("success", "Incluído com sucesso.");
 		this.result.redirectTo("/funcionario/cadastro");
 	}	
 	
 	@Put
 	public void atualiza(Funcionario funcionario){
-		dao.atualiza(funcionario);
+		funcDao.atualiza(funcionario);
 		this.result.redirectTo("/funcionarios");
 	}
 	
 	@Path("funcionario/edita/{id}")
 	public Funcionario edita(int id){
-		return dao.carrega(id);
+		return funcDao.carrega(id);
 	}
 	
 	@Path("funcionario/remove/{id}")
 	public void remove(int id){
 		Funcionario funcionario = this.busca(id); 
-		dao.remove(funcionario);
+		funcDao.remove(funcionario);
 		this.result.redirectTo("/funcionarios");
 	}
 	
 	public Funcionario busca(int id){
-		return dao.carrega(id);
+		return funcDao.carrega(id);
 	}
 		
 	public Funcionario busca(String cpf){
-		return dao.carrega(cpf);
+		return funcDao.carrega(cpf);
 	}
 	
 	public Funcionario busca(Funcionario funcionario){
-		return dao.carrega(funcionario);
+		return funcDao.carrega(funcionario);
 	}
 	
 	@Path("funcionarios")	
 	public List<Funcionario> lista(){
-		return dao.lista();
+		return funcDao.lista();
 	}
 	
 	public List<Funcionario> lista(String nome){
-		return dao.lista(nome);
+		return funcDao.lista(nome);
 	}
 
 	public void validarCampos(Funcionario funcionario){

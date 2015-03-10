@@ -73,6 +73,20 @@
                                   <span class="erros">${errors.from('email')}</span>
                               </div>
                           </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Nome de usuário:</label>
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control" placeholder="nomesobrenome" name="login.usuario"  value="${login.usuario}">
+                                  <span class="erros">${errors.from('usuario')}</span>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Senha:</label>
+                              <div class="col-sm-10">
+                                  <input type="password" class="form-control" placeholder="senha" name="login.senha"  value="${login.senha}">
+                                  <span class="erros">${errors.from('senha')}</span>
+                              </div>
+                          </div>
                           <button type="submit" class="btn btn-primary btnCadastro">
 								Cadastrar
 						  </button>

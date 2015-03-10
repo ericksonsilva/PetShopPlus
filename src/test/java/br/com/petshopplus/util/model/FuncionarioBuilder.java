@@ -1,7 +1,5 @@
 package br.com.petshopplus.util.model;
 
-import java.util.List;
-
 import br.com.petshopplus.model.Funcionario;
 
 public class FuncionarioBuilder {
