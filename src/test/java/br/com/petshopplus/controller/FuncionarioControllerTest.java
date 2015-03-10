@@ -44,8 +44,8 @@ public class FuncionarioControllerTest {
 		
 		login = new LoginBuilder().withUsuario("neto").withSenha("12345").build();
 		funcionario = new FuncionarioBuilder().withCPF("07680714452").withNome("Neto").withTelefone("87284395").
-				withRua("Manoel Roberto").withCidade("João Pessoa").withBairro("Bancários").
-				withEmail("netom.m@hotmail.com").withComplemento("B2").build();
+				withRua("Manoel Roberto").withComplemento("B2").withBairro("Bancários").withCidade("João Pessoa").
+				withEmail("netom.m@hotmail.com").withFuncao("Atendente").build();
 	}
 
 	@Test

@@ -46,7 +46,7 @@ public class AgendaControllerTest {
 		validator = new MockValidator();
 		controller = new AgendaController(agendaDao,result,validator,clienteDao,animalDao,funcionarioDao);
 		
-		agenda = new AgendaBuilder().withDescricao("Banho").withMarcado(true).withHora("13:00").build();
+		agenda = new AgendaBuilder().withDescricao("Banho").withHora("13:00").build();
 	}
 
 	@Test
@@ -64,7 +64,7 @@ public class AgendaControllerTest {
 	        fail("Não deve passar pelo metodo acima");
 	    } catch (ValidationException e) {
 	        List<Message> errors = e.getErrors();
-	        assertTrue(errors.contains(new SimpleMessage("nome", "O nome deve ser preenchido")));
+	        assertTrue(errors.contains(new SimpleMessage("hora", "A hora deve ser preenchida")));
 	        assertEquals(1, errors.size());
 	    }
 	}

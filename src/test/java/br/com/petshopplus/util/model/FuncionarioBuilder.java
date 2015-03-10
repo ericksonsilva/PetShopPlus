@@ -45,6 +45,11 @@ public class FuncionarioBuilder {
 		return this;
 	}
 	
+	public FuncionarioBuilder withFuncao(String funcao) {
+		funcionario.setFuncao(funcao);
+		return this;
+	}
+	
 	public Funcionario build() {
 		return funcionario;
 	}

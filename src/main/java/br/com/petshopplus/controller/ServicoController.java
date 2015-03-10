@@ -40,9 +40,9 @@ public class ServicoController {
 	@Path("servico/adiciona")
 	@Post
 	public void adiciona(Servico servico){
-	    validator.validate(servico);
-		validator.onErrorUsePageOf(this).formulario();
+		validarCampos(servico);
 		dao.salva(servico);
+		result.include("success", "Incluído com sucesso.");
 		this.result.redirectTo("/servico/cadastro");
 	}	
 	
@@ -87,7 +87,7 @@ public void validarCampos(Servico servico){
 		else if(servico.getNome().length() < 3) validator.add(new SimpleMessage("nome", "O nome deve conter mais de 3 letras"));
 		
 		validator.addIf(servico.getDescricao() == null, new SimpleMessage("descricao","A descrção deve ser preenchido"));
-		validator.addIf(servico.getValor() == 0.0, new SimpleMessage("valor","O valor deve ser preenchido"));
+		validator.addIf(servico.getValor() == 0, new SimpleMessage("valor","O valor deve ser preenchido"));
 
 		validator.onErrorRedirectTo(this).formulario();
 

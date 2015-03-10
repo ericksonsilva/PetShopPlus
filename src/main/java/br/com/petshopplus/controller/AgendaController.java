@@ -14,12 +14,14 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.validator.SimpleMessage;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.petshopplus.dao.AgendaDao;
 import br.com.petshopplus.dao.AnimalDao;
 import br.com.petshopplus.dao.ClienteDao;
 import br.com.petshopplus.dao.FuncionarioDao;
 import br.com.petshopplus.model.Agenda;
+import br.com.petshopplus.model.Cliente;
 
 @Controller
 public class AgendaController {
@@ -60,11 +62,10 @@ public class AgendaController {
 	@Path("agenda/adiciona")
 	@Post
 	public void adiciona(Agenda agenda){
-		System.out.println("Hora: "+agenda.getHora());
-	    validator.validate(agenda);
-		validator.onErrorUsePageOf(this).formulario();
+		validarCampos(agenda);
 		agenda.setMarcado(true);
 		dao.salva(agenda);
+		result.include("success", "Incluído com sucesso.");
 		this.result.redirectTo("/agenda/cadastro");
 	}	
 	
@@ -82,7 +83,10 @@ public class AgendaController {
 	
 	@Path("agenda/remove/{id}")
 	public void remove(int id){
-		Agenda consulta = this.busca(id); 
+		Agenda consulta = this.busca(id);
+		validator.check(consulta != null, new SimpleMessage("id", "Consulta não encontrado ou aconteceu algum erro na busca."));
+		validator.onErrorUsePageOf(this).lista();
+		result.include("success", "Excluído com sucesso.");
 		dao.remove(consulta);
 		this.result.redirectTo("/marcados");
 	}
@@ -163,4 +167,12 @@ public class AgendaController {
 		return anomesdia;
 	}
 	
+	
+	public void validarCampos(Agenda agenda){		
+		validator.addIf(agenda.getDescricao() == null, new SimpleMessage("descricao","A descrição deve ser preenchida"));
+		validator.addIf(agenda.getHora() == null, new SimpleMessage("hora","A hora deve ser preenchida"));
+		
+
+		validator.onErrorRedirectTo(this).formulario();
+	}
 }
