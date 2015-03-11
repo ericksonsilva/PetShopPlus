@@ -4,7 +4,7 @@
                   <div class="col-md-12">
                       <div class="content-panel">
                           <table class="table table-striped table-advance table-hover" >
-	                  	  	  <h4><i class="fa fa-angle-right"></i> Lista de Consultas Marcadas</h4>
+	                  	  	  <h4><i class="fa fa-angle-right"></i> Lista de Consultas Realizadas</h4>
 	                  	  	  <hr>
                               <thead>
                               <tr>                              	  
@@ -14,24 +14,23 @@
                                   <th>Descrição</th>
                                   <th>Animal</th>
                                   <th>Cliente</th>     
-                                  <th>Funcionario</th>                            
+                                  <th>Funcionario</th>    
+                                  <th>Serviço</th>   
+                                                       
 
                               </tr>
                               </thead>
                               <tbody>
-                              <c:forEach items="${marcados}" var = "marcados">
+                              <c:forEach items="${consultas}" var = "consultas">
 	              	          <tr>
-	              	             
-	              	              <td>0${marcados.data.getDay()+1}/0${marcados.data.getMonth()+1}/20${marcados.data.getYear()-100}</td>
-	              	              <td>${marcados.hora}</td>
-                                  <td>${marcados.descricao}</td>
-	              	              <td>${marcados.animal.nome}</td>
-	              	              <td>${marcados.cliente.nome}</td>
-	              	              <td>${marcados.funcionario.nome}</td>
-	              	              <td>
-	              	                <a href="agenda/edita/${marcados.id}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-	              	                <a href="agenda/desmarcar/${marcados.id}" class="btn btn-danger btn-xs"  onclick="return confirm('Deseja realmente desmarcar?');">Desmarcar</a>
-                                  </td>
+	              	             	
+	              	              <td><fmt:formatDate pattern="dd/MM/yyyy" value="${consultas.data}" /></td>
+	              	              <td>${consultas.hora}</td>
+                                  <td>${consultas.descricao}</td>
+	              	              <td>${consultas.animal.nome}</td>
+	              	              <td>${consultas.cliente.nome}</td>
+	              	              <td>${consultas.funcionario.nome}</td>
+	              	              <td>${consultas.servico.nome}</td>
 	              	          </tr>
 	              	    	  </c:forEach>
                               </tbody>

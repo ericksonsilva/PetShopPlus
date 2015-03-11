@@ -22,14 +22,14 @@
                               <c:forEach items="${desmarcados}" var = "desmarcados">
 	              	          <tr>
 	              	             
-	              	              <td>0${desmarcados.data.getDay()+1}/0${desmarcados.data.getMonth()+1}/20${desmarcados.data.getYear()-100}</td>
+	              	              <td><fmt:formatDate pattern="dd/MM/yyyy" value="${desmarcados.data}" /></td>
 	              	              <td>${desmarcados.hora}</td>
                                   <td>${desmarcados.descricao}</td>
 	              	              <td>${desmarcados.animal.nome}</td>
 	              	              <td>${desmarcados.cliente.nome}</td>
 	              	              <td>${desmarcados.funcionario.nome}</td>
 	              	              <td>
-	              	                <a href="agenda/remarcar/${desmarcados.id}" class="btn btn-danger btn-xs"  onclick="return confirm('Deseja realmente Remarcar a Consulta?');">Remarcar</a>
+	              	                <a href="consulta/remarcar/${desmarcados.id}" class="btn btn-danger btn-xs"  onclick="return confirm('Deseja realmente Remarcar a Consulta?');">Remarcar</a>
                                   </td>
 	              	          </tr>
 	              	    	  </c:forEach>

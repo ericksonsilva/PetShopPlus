@@ -5,7 +5,7 @@ import javax.inject.Inject;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
-import br.com.petshopplus.dao.AgendaDao;
+import br.com.petshopplus.dao.ConsultaDao;
 import br.com.petshopplus.dao.AnimalDao;
 import br.com.petshopplus.dao.ClienteDao;
 import br.com.petshopplus.dao.LoginDao;
@@ -24,14 +24,14 @@ public class IndexController {
 	private final ClienteDao clienteDao;
 	private final ServicoDao servicoDao;
 	private final ProdutoDao produtoDao;
-	private final AgendaDao agendaDao;
+	private final ConsultaDao agendaDao;
 	
 	protected IndexController() {
 		this(null, null, null,  null, null, null, null);
 	}
 	
 	@Inject
-	public IndexController(Result result, LoginDao loginDao, AnimalDao animalDao, ClienteDao clienteDao, ServicoDao servicoDao, ProdutoDao produtoDao, AgendaDao agendaDao){
+	public IndexController(Result result, LoginDao loginDao, AnimalDao animalDao, ClienteDao clienteDao, ServicoDao servicoDao, ProdutoDao produtoDao, ConsultaDao agendaDao){
 		this.result = result;
 		this.loginDao = loginDao;
 		this.animalDao = animalDao;

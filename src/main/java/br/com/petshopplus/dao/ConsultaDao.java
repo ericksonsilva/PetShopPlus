@@ -17,21 +17,25 @@ public class ConsultaDao {
 		session = HibernateUtil.getInstance().getSession();
 	}
 
-	public void salva(Consulta consulta) {
+	public void salva(Consulta agenda) {
 		Transaction tx = session.beginTransaction();
-		this.session.save(consulta);
+		this.session.save(agenda);
 		tx.commit();
 	}
 	
-	public void atualiza(Consulta consulta) {
+	public void atualiza(Consulta agenda) {
+		System.out.println("animal: "+agenda.getAnimal().getNome()+" hora:"+agenda.getHora()
+				+" id: "+agenda.getId()+" descricao: "+agenda.getDescricao()+
+				" cliente: "+agenda.getCliente().getNome()
+				);
 		Transaction tx = session.beginTransaction();
-		this.session.update(consulta);
+		this.session.update(agenda);
 		tx.commit();
 	}
 	
-	public void remove(Consulta consulta) {
+	public void remove(Consulta agenda) {
 		Transaction tx = session.beginTransaction();
-		this.session.delete(consulta);
+		this.session.delete(agenda);
 		tx.commit();
 	}
 	
@@ -39,17 +43,17 @@ public class ConsultaDao {
 		return (Consulta) this.session.get(Consulta.class, id);
 	}
 	
-	public Consulta carrega(Consulta consulta) {
+	public Consulta carrega(Consulta agenda) {
 		return (Consulta) session.createCriteria(Consulta.class)
-		.add(Restrictions.eq("id", consulta.getId()))
+		.add(Restrictions.eq("id", agenda.getId()))
 		.uniqueResult();
 	}
 	
-	public boolean existeConsulta(Consulta consulta) {
+	public boolean existeAgenda(Consulta agenda) {
 		Consulta encontrado = (Consulta) session.createCriteria(Consulta.class)
-				.add(Restrictions.eq("animal", consulta.getAnimal().getNome()))
-				.add(Restrictions.eq("cliente", consulta.getCliente().getCpf()))
-				.add(Restrictions.eq("cliente", consulta.getCliente().getNome()))
+				.add(Restrictions.eq("animal", agenda.getAnimal().getNome()))
+				.add(Restrictions.eq("cliente", agenda.getCliente().getCpf()))
+				.add(Restrictions.eq("cliente", agenda.getCliente().getNome()))
 				.uniqueResult();
 				return encontrado != null;
 	}	

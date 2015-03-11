@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="Consultas")
 public class Consulta {
@@ -19,6 +20,13 @@ public class Consulta {
 	private int id;
 	private Date data;
 	private String descricao;
+	
+	
+	
+	private String hora;
+	private boolean marcado;
+	private boolean atendido;
+	
 	
 	@ManyToOne
 	@JoinColumn(name = "servico_id")
@@ -31,6 +39,28 @@ public class Consulta {
 	@ManyToOne
 	@JoinColumn(name="animal_id")
 	private Animal animal;
+	
+	@ManyToOne
+	@JoinColumn(name="funcionario_id")
+	private Funcionario funcionario;
+	
+	
+	public String getHora() {
+		return hora;
+	}
+
+	public void setHora(String hora) {
+		this.hora = hora;
+	}
+
+	public boolean isMarcado() {
+		return marcado;
+	}
+
+	public void setMarcado(boolean marcado) {
+		this.marcado = marcado;
+	}
+	
 	
 	public int getId() {
 		return id;
@@ -72,12 +102,29 @@ public class Consulta {
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
 	}
-	public void setServico(Servico servico) {
-		this.servico = servico;
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 	
 	public Servico getServico() {
 		return servico;
 	}
+	
+	public void setServico(Servico servico) {
+		this.servico = servico;
+	}
+	
+	public void setAtendido(boolean atendido) {
+		this.atendido = atendido;
+	}
+	public boolean isAtendido() {
+		return atendido;
+	}
+	
 	
 }

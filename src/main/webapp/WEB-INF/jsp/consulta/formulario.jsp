@@ -12,30 +12,25 @@
                               <label class="col-sm-2 col-sm-2 control-label">Data:</label>
                               <div class="col-sm-10">
                                   <input type="text" class="form-control" name="consulta.data"  value="${consulta.data}">
-                              	  <span class="erros">${errors.from('data')}</span>
                               </div>
                           </div>
-                          <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">Descrição:</label>
+                          
+                           <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">Horário:</label>
                               <div class="col-sm-10">
-                                  <textarea  class="form-control" name="consulta.descricao" value="${consulta.descricao}"></textarea>
-                                  <span class="erros">${errors.from('descricao')}</span>
+                                  <textarea  class="form-control" name="consulta.hora" value="${consulta.hora}"></textarea>
                               </div>
                           </div>
                           
                           <div class="form-group">
-                              <label for="servico" class="col-sm-2 col-sm-2 control-label">Serviço:</label>
+                              <label class="col-sm-2 col-sm-2 control-label">Descrição:</label>
                               <div class="col-sm-10">
-                                   <select class="form-control" name="consulta.servico.id" >
-                                   <c:forEach items="${servicos}" var = "servico">
-									  <option  value="${servico.id}">${servico.nome}</option>
-									  </c:forEach>
-									</select>
+                                  <textarea  class="form-control" name="consulta.descricao" value="${consulta.descricao}"></textarea>
                               </div>
                           </div>
-
+                                                          
                           <div class="form-group">
-                              <label for="cliente" class="col-sm-2 col-sm-2 control-label">Cliente:</label>
+                              <label for="cliente" class="col-sm-2 col-sm-2 control-label">Dono:</label>
                               <div class="col-sm-10">
                                    <select class="form-control" name="consulta.cliente.id" >
                                    <c:forEach items="${clientes}" var = "cliente">
@@ -44,7 +39,7 @@
 									</select>
                               </div>
                           </div>
-                          
+
                           <div class="form-group">
                               <label for="animal" class="col-sm-2 col-sm-2 control-label">Animal:</label>
                               <div class="col-sm-10">
@@ -55,7 +50,27 @@
 									</select>
                               </div>
                           </div>
-                                                    
+
+                          <div class="form-group">
+                              <label for="animal" class="col-sm-2 col-sm-2 control-label">Funcionário responsável:</label>
+                              <div class="col-sm-10">
+                                   <select class="form-control" name="consulta.funcionario.id" >
+                                   <c:forEach items="${funcionarios}" var = "funcionario">
+									  <option  value="${funcionario.id}">${funcionario.nome}</option>
+									  </c:forEach>
+									</select>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="servico" class="col-sm-2 col-sm-2 control-label">Serviço:</label>
+                              <div class="col-sm-10">
+                                   <select class="form-control" name="consulta.servico.id" >
+                                   <c:forEach items="${servicos}" var = "servico">
+									  <option  value="${servico.id}">${servico.nome}</option>
+									  </c:forEach>
+									</select>
+                              </div>
+                          </div>
                           <button type="submit" class="btn btn-primary btnCadastro">
 								Cadastrar
 						  </button>

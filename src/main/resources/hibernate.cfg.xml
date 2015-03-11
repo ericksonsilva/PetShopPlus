@@ -33,7 +33,7 @@
   <mapping class="br.com.petshopplus.model.Produto" />
   <mapping class="br.com.petshopplus.model.Servico" />
   <mapping class="br.com.petshopplus.model.Consulta" />
-  <mapping class="br.com.petshopplus.model.Agenda" />
+  
   
 
 

@@ -3,13 +3,13 @@ package br.com.petshopplus.util.model;
 import java.util.Date;
 import java.util.List;
 
-import br.com.petshopplus.model.Agenda;
+import br.com.petshopplus.model.Consulta;
 import br.com.petshopplus.model.Animal;
 import br.com.petshopplus.model.Cliente;
 import br.com.petshopplus.model.Funcionario;
 
 public class AgendaBuilder {
-	private final Agenda agenda = new Agenda();
+	private final Consulta agenda = new Consulta();
 	
 	public AgendaBuilder withData(Date data) {
 		agenda.setData(data);
@@ -46,7 +46,7 @@ public class AgendaBuilder {
 		return this;
 	}
 	
-	public Agenda build() {
+	public Consulta build() {
 		return agenda;
 	}
 }

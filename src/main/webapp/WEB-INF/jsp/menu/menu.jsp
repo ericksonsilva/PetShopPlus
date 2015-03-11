@@ -112,26 +112,18 @@
                       </ul>
                   </li>
                   
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-calendar"></i>
-                          <span>Consulta</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="<c:url value="/consulta/cadastro"/>">Cadastrar</a></li> 
-                          <li><a  href="<c:url value="/consultas"/>">Listar</a></li>
-                      </ul>
-                  </li>
+                  
                   
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-calendar-o"></i>
-                          <span>Agenda</span>
+                          <span>Consulta</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="<c:url value="/agenda/cadastro"/>">Cadastrar</a></li> 
+                          <li><a  href="<c:url value="/consulta/cadastro"/>">Cadastrar</a></li> 
                           <li><a  href="<c:url value="/marcados"/>">Consultas Agendadas</a></li>
                            <li><a  href="<c:url value="/desmarcados"/>">Consultas Desmacadas</a></li>
+                           <li><a  href="<c:url value="/consultasrealizadas"/>">Consultas Realizadas</a></li>
                           
                       </ul>
                   </li>
