@@ -58,7 +58,7 @@
                 	              label: "Desmarcadas"
                 	          },
                 	          {
-                	              value: attribute[2],
+                	              value: list[2],
                 	              color: "#FDB45C",
                 	              highlight: "#FFC870",
                 	              label: "Atendidas"
