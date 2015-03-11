@@ -16,6 +16,7 @@
     <script type="text/javascript" src="<c:url value="/js/jquery.js"/>"></script>
     <script class="include" type="text/javascript" src="<c:url value="/js/jquery.dcjqaccordion.js"/>"></script>
     <script class="include" type="text/javascript" src="<c:url value="/js/common-scripts.js"/>"></script>
+    <script class="include" type="text/javascript" src="<c:url value="/js/Chart.js"/>"></script>
     
 <fmt:setLocale value="pt_br"/>
   </head>
