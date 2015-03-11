@@ -25,7 +25,7 @@
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">Valor:</label>
                               <div class="col-sm-10">
-                                  <input type="text" class="form-control" name="servico.preco" value="${servico.valor}">
+                                  <input type="text" class="form-control" name="servico.valor" value="${servico.valor}">
                               	  <span class="erros">${errors.from('valor')}</span>
                               </div>
                           </div>                   
